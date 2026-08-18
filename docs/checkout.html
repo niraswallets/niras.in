@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Checkout — Sira Lifestyle</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700;9..144,900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#ffffff;
+    --surface:#FBF6EF;
+    --surface-2:#F5ECDF;
+    --ink:#241811;
+    --ink-soft:#6E5D4E;
+    --tan:#B5793E;
+    --tan-dark:#8A5A28;
+    --tan-light:#E9CFA7;
+    --brass:#C9A227;
+    --line:#E9DFCF;
+    --radius:14px;
+    --ok:#3E9B5C;
+    --err:#B3453D;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  body{background:var(--bg); color:var(--ink); font-family:'Inter',sans-serif; -webkit-font-smoothing:antialiased;}
+  h1,h2,h3{font-family:'Fraunces',serif; letter-spacing:-0.01em;}
+  a{color:inherit; text-decoration:none;}
+  img,svg{display:block;}
+  .wrap{max-width:1100px; margin:0 auto; padding:0 28px;}
+
+  /* ===== HEADER ===== */
+  header{position:sticky; top:0; z-index:50; background:rgba(255,255,255,.92); backdrop-filter:blur(10px); border-bottom:1px solid var(--line);}
+  .nav{display:flex; align-items:center; justify-content:space-between; padding:18px 28px; max-width:1100px; margin:0 auto;}
+  .brand{display:flex; align-items:center; gap:11px;}
+  .brand-mark{width:38px; height:38px; border-radius:10px; background:var(--tan); display:flex; align-items:center; justify-content:center;}
+  .brand-mark svg{width:20px; height:20px;}
+  .brand-name{font-family:'Fraunces',serif; font-weight:700; font-size:20px;}
+  .brand-sub{font-size:10px; letter-spacing:.16em; color:var(--ink-soft); text-transform:uppercase; margin-top:-2px;}
+  .secure-tag{display:flex; align-items:center; gap:8px; font-size:13px; font-weight:600; color:var(--ink-soft);}
+  .secure-tag svg{width:16px; height:16px; stroke:var(--ok);}
+
+  /* ===== PROGRESS ===== */
+  .progress{padding:28px 0 8px;}
+  .progress-row{display:flex; align-items:center; justify-content:center; gap:10px; max-width:460px; margin:0 auto;}
+  .p-step{display:flex; align-items:center; gap:8px; font-size:12.5px; font-weight:700; color:var(--ink-soft);}
+  .p-dot{width:24px; height:24px; border-radius:50%; background:var(--surface-2); color:var(--ink-soft); display:flex; align-items:center; justify-content:center; font-size:12px;}
+  .p-step.done .p-dot{background:var(--tan); color:#fff;}
+  .p-step.active .p-dot{background:var(--ink); color:#fff;}
+  .p-line{flex:1; height:1.5px; background:var(--line); max-width:40px;}
+
+  /* ===== MAIN LAYOUT ===== */
+  .checkout-section{padding:44px 0 100px;}
+  .checkout-grid{display:grid; grid-template-columns:1.15fr .85fr; gap:48px; align-items:start;}
+  @media(max-width:900px){.checkout-grid{grid-template-columns:1fr;}}
+
+  .card{background:#fff; border:1px solid var(--line); border-radius:var(--radius); padding:32px;}
+  .card + .card{margin-top:24px;}
+  .card h2{font-size:20px; font-weight:600; margin-bottom:6px;}
+  .card .sub{font-size:13.5px; color:var(--ink-soft); margin-bottom:26px;}
+
+  .field-grid{display:grid; grid-template-columns:1fr 1fr; gap:18px;}
+  .field{display:flex; flex-direction:column; gap:7px; margin-bottom:18px;}
+  .field.full{grid-column:1/-1;}
+  .field label{font-size:13px; font-weight:600; color:var(--ink);}
+  .field label .opt{font-weight:400; color:var(--ink-soft); font-size:12px;}
+  .field input, .field textarea{
+    border:1.5px solid var(--line); border-radius:10px; padding:13px 14px; font-size:14.5px;
+    font-family:'Inter',sans-serif; color:var(--ink); background:#fff; transition:border-color .2s, box-shadow .2s;
+  }
+  .field input:focus, .field textarea:focus{outline:none; border-color:var(--tan); box-shadow:0 0 0 3px var(--tan-light);}
+  .field textarea{resize:vertical; min-height:78px;}
+  .field.error input, .field.error textarea{border-color:var(--err);}
+  .field .err-msg{font-size:12px; color:var(--err); display:none;}
+  .field.error .err-msg{display:block;}
+  .field .hint{font-size:12px; color:var(--ink-soft);}
+  .field .pin-status{font-size:12px; display:flex; align-items:center; gap:6px; height:14px;}
+  .field .pin-status.loading{color:var(--ink-soft);}
+  .field .pin-status.ok{color:var(--ok);}
+  .field .pin-status.bad{color:var(--err);}
+  .spinner{width:12px; height:12px; border:2px solid var(--tan-light); border-top-color:var(--tan); border-radius:50%; animation:spin .7s linear infinite;}
+  @keyframes spin{to{transform:rotate(360deg);}}
+  @media(max-width:560px){.field-grid{grid-template-columns:1fr;}}
+
+  .autofilled{background:var(--surface); border-color:var(--tan-light) !important;}
+
+  /* ===== ORDER SUMMARY ===== */
+  .summary-item{display:flex; gap:14px; align-items:center; padding:14px 0; border-bottom:1px solid var(--line);}
+  .summary-visual{width:56px; height:56px; border-radius:9px; flex-shrink:0; position:relative; overflow:hidden; background:linear-gradient(160deg,#F6D9C0,#EFC49E); display:flex; align-items:center; justify-content:center;}
+  .summary-visual .plate{width:70%; aspect-ratio:16/9; border-radius:4px; background:linear-gradient(155deg,#9C3B34,#6E211D);}
+  .summary-name{font-weight:600; font-size:14px; margin-bottom:3px;}
+  .summary-meta{font-size:12.5px; color:var(--ink-soft);}
+  .summary-price{margin-left:auto; font-weight:700; font-size:14.5px; color:var(--tan-dark); white-space:nowrap;}
+
+  .promo-row{display:flex; gap:10px; margin:20px 0;}
+  .promo-row input{flex:1; border:1.5px solid var(--line); border-radius:10px; padding:12px 14px; font-size:13.5px; font-family:'Inter',sans-serif;}
+  .promo-row button{background:var(--surface-2); border:1.5px solid var(--line); border-radius:10px; padding:0 18px; font-weight:600; font-size:13.5px; cursor:pointer; color:var(--ink);}
+
+  .totals-row{display:flex; justify-content:space-between; font-size:14px; color:var(--ink-soft); padding:8px 0;}
+  .totals-row.grand{font-size:17px; font-weight:700; color:var(--ink); border-top:1px solid var(--line); margin-top:8px; padding-top:16px;}
+  .totals-row.grand span:last-child{color:var(--tan-dark);}
+  .totals-row .free{color:var(--ok); font-weight:600;}
+
+  .pay-btn{
+    display:flex; align-items:center; justify-content:center; gap:10px;
+    width:100%; margin-top:24px; padding:17px; border-radius:100px;
+    background:var(--tan); color:#fff; font-weight:700; font-size:16px;
+    cursor:pointer; transition:background .2s ease, transform .2s ease, opacity .2s ease;
+    border:none; font-family:'Inter',sans-serif;
+  }
+  .pay-btn:hover{background:var(--tan-dark);}
+  .pay-btn.disabled{
+    background:var(--surface-2); color:var(--ink-soft); cursor:not-allowed;
+    pointer-events:none; opacity:1;
+  }
+  .pay-btn svg{width:17px; height:17px;}
+  .pay-note{display:flex; align-items:center; justify-content:center; gap:7px; font-size:12px; color:var(--ink-soft); margin-top:14px;}
+  .pay-note svg{width:13px; height:13px; stroke:var(--ink-soft);}
+
+  .trust-mini{display:flex; gap:18px; justify-content:center; margin-top:24px; flex-wrap:wrap;}
+  .trust-mini span{display:flex; align-items:center; gap:6px; font-size:12px; color:var(--ink-soft); font-weight:600;}
+  .trust-mini svg{width:14px; height:14px; stroke:var(--tan-dark);}
+
+  footer{background:var(--ink); color:#EFE6DA; padding:36px 0;}
+  .footer-bottom{text-align:center; font-size:12.5px; color:#8A7A67;}
+  .footer-top{display:flex; align-items:center; justify-content:center; gap:10px; margin-bottom:14px;}
+  .footer-top span{font-family:'Fraunces',serif; font-size:16px; font-weight:700; color:#fff;}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="nav">
+    <div class="brand">
+      <div class="brand-mark"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h9"/></svg></div>
+      <div><div class="brand-name">Sira</div><div class="brand-sub">Lifestyle</div></div>
+    </div>
+    <div class="secure-tag"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><rect x="3" y="11" width="18" height="10" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>Secure Checkout</div>
+  </div>
+</header>
+
+<section class="progress">
+  <div class="progress-row">
+    <div class="p-step done"><span class="p-dot">✓</span>Bag</div>
+    <div class="p-line"></div>
+    <div class="p-step active"><span class="p-dot">2</span>Details</div>
+    <div class="p-line"></div>
+    <div class="p-step"><span class="p-dot">3</span>Payment</div>
+  </div>
+</section>
+
+<section class="checkout-section">
+  <div class="wrap checkout-grid">
+
+    <div>
+      <div class="card">
+        <h2>Delivery Details</h2>
+        <p class="sub">We'll use these details to ship your order and keep you updated.</p>
+
+        <form id="checkoutForm" novalidate>
+          <div class="field-grid">
+            <div class="field full" data-field="fullName">
+              <label for="fullName">Full Name</label>
+              <input type="text" id="fullName" placeholder="e.g. Priya Mehta" autocomplete="name">
+              <span class="err-msg">Please enter your full name.</span>
+            </div>
+
+            <div class="field" data-field="phone">
+              <label for="phone">Contact Number</label>
+              <input type="tel" id="phone" placeholder="10-digit mobile number" maxlength="10" autocomplete="tel">
+              <span class="err-msg">Enter a valid 10-digit number.</span>
+            </div>
+
+            <div class="field" data-field="email">
+              <label for="email">Email ID</label>
+              <input type="email" id="email" placeholder="you@example.com" autocomplete="email">
+              <span class="err-msg">Enter a valid email address.</span>
+            </div>
+
+            <div class="field full" data-field="address">
+              <label for="address">Address</label>
+              <textarea id="address" placeholder="House / flat no., street, locality" autocomplete="street-address"></textarea>
+              <span class="err-msg">Please enter your delivery address.</span>
+            </div>
+
+            <div class="field" data-field="pincode">
+              <label for="pincode">Pincode</label>
+              <input type="text" id="pincode" placeholder="6-digit pincode" maxlength="6" inputmode="numeric" autocomplete="postal-code">
+              <span class="pin-status" id="pinStatus"></span>
+              <span class="err-msg">Enter a valid 6-digit pincode.</span>
+            </div>
+
+            <div class="field" data-field="city">
+              <label for="city">City <span class="opt">(auto-filled, editable)</span></label>
+              <input type="text" id="city" placeholder="City" autocomplete="address-level2">
+              <span class="err-msg">Please enter your city.</span>
+            </div>
+
+            <div class="field full" data-field="state">
+              <label for="state">State <span class="opt">(auto-filled, editable)</span></label>
+              <input type="text" id="state" placeholder="State" autocomplete="address-level1">
+              <span class="err-msg">Please enter your state.</span>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <div>
+      <div class="card">
+        <h2>Order Summary</h2>
+        <div class="summary-item">
+          <div class="summary-visual"><div class="plate"></div></div>
+          <div>
+            <div class="summary-name">Slim Wallet — Red</div>
+            <div class="summary-meta">Qty: 1 · IT Edition</div>
+          </div>
+          <div class="summary-price">₹149</div>
+        </div>
+
+        <div class="promo-row">
+          <input type="text" placeholder="Promo code">
+          <button type="button">Apply</button>
+        </div>
+
+        <div class="totals-row"><span>Subtotal</span><span>₹149</span></div>
+        <div class="totals-row"><span>Shipping</span><span class="free">Free</span></div>
+        <div class="totals-row grand"><span>Total</span><span>₹149</span></div>
+
+        <a href="#" class="pay-btn disabled" id="payBtn">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20"/></svg>
+          Pay Now
+        </a>
+        <div class="pay-note"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><rect x="3" y="11" width="18" height="10" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>Fill in all details above to continue</div>
+
+        <div class="trust-mini">
+          <span><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M21 8l-9-5-9 5 9 5 9-5zM3 8v8l9 5 9-5V8"/></svg>Premium Packaging</span>
+          <span><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M3 7h11v9H3zM14 10h4l3 3v3h-7z"/><circle cx="7" cy="18" r="1.6"/><circle cx="18" cy="18" r="1.6"/></svg>Fast Shipping</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-top">
+      <div class="brand-mark" style="width:28px;height:28px;"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h9"/></svg></div>
+      <span>Sira Lifestyle</span>
+    </div>
+    <div class="footer-bottom">© 2026 Sira Lifestyle. All Rights Reserved. · www.sira.lifestyle</div>
+  </div>
+</footer>
+
+<script>
+  const fields = ['fullName','phone','email','address','pincode','city','state'];
+  const els = {}; fields.forEach(f => els[f] = document.getElementById(f));
+  const payBtn = document.getElementById('payBtn');
+  const pinStatus = document.getElementById('pinStatus');
+
+  function fieldWrap(id){ return document.querySelector(`[data-field="${id}"]`); }
+
+  function isValid(id){
+    const v = els[id].value.trim();
+    switch(id){
+      case 'fullName': return v.length >= 2;
+      case 'phone': return /^[6-9]\d{9}$/.test(v);
+      case 'email': return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v);
+      case 'address': return v.length >= 6;
+      case 'pincode': return /^\d{6}$/.test(v);
+      case 'city': return v.length >= 2;
+      case 'state': return v.length >= 2;
+      default: return false;
+    }
+  }
+
+  function updateFieldUI(id, showError){
+    const wrap = fieldWrap(id);
+    const valid = isValid(id);
+    wrap.classList.toggle('error', showError && !valid);
+    return valid;
+  }
+
+  function checkAllValid(){
+    const allValid = fields.every(id => isValid(id));
+    payBtn.classList.toggle('disabled', !allValid);
+    payBtn.setAttribute('aria-disabled', String(!allValid));
+    return allValid;
+  }
+
+  fields.forEach(id => {
+    els[id].addEventListener('input', () => {
+      updateFieldUI(id, false);
+      checkAllValid();
+    });
+    els[id].addEventListener('blur', () => updateFieldUI(id, true));
+  });
+
+  /* Pincode -> City/State autofill (editable afterwards) */
+  let pinTimer;
+  els.pincode.addEventListener('input', () => {
+    els.pincode.value = els.pincode.value.replace(/\D/g,'').slice(0,6);
+    clearTimeout(pinTimer);
+    pinStatus.className = 'pin-status';
+    pinStatus.textContent = '';
+    if(els.pincode.value.length === 6){
+      pinTimer = setTimeout(() => lookupPincode(els.pincode.value), 350);
+    }
+  });
+
+  async function lookupPincode(pin){
+    pinStatus.className = 'pin-status loading';
+    pinStatus.innerHTML = '<span class="spinner"></span> Looking up pincode…';
+    try{
+      const res = await fetch(`https://api.postalpincode.in/pincode/${pin}`);
+      const data = await res.json();
+      const record = data && data[0];
+      if(record && record.Status === 'Success' && record.PostOffice && record.PostOffice.length){
+        const po = record.PostOffice[0];
+        els.city.value = po.District || po.Name || '';
+        els.state.value = po.State || '';
+        els.city.classList.add('autofilled');
+        els.state.classList.add('autofilled');
+        pinStatus.className = 'pin-status ok';
+        pinStatus.textContent = '✓ City & state auto-filled — feel free to edit';
+        updateFieldUI('city', false); updateFieldUI('state', false);
+      } else {
+        pinStatus.className = 'pin-status bad';
+        pinStatus.textContent = 'Couldn\'t find this pincode — enter city/state manually';
+      }
+    } catch(e){
+      pinStatus.className = 'pin-status bad';
+      pinStatus.textContent = 'Lookup failed — enter city/state manually';
+    }
+    checkAllValid();
+  }
+
+  els.city.addEventListener('input', () => els.city.classList.remove('autofilled'));
+  els.state.addEventListener('input', () => els.state.classList.remove('autofilled'));
+
+  payBtn.addEventListener('click', (e) => {
+    if(payBtn.classList.contains('disabled')){ e.preventDefault(); return; }
+    // Pay Now proceeds — hook up real payment gateway here.
+  });
+</script>
+
+</body>
+</html>
