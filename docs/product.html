@@ -1,0 +1,1524 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nira's Watches — Timeless, Told in Black</title>
+<meta name="description" content="Nira's Watches — premium blackout watches with Arabic numeral dials. Fast shipping, secure payments, 1 year warranty. Shop the collection.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#0d0d0c;
+    --ink-soft:#1a1a18;
+    --paper:#f6f3ec;
+    --paper-2:#efeadf;
+    --line:#dcd5c4;
+    --brass:#a9812f;
+    --brass-deep:#7c5f24;
+    --white:#ffffff;
+    --grey:#6b675e;
+    --radius-s:2px;
+    --maxw:1240px;
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Inter',sans-serif;
+    -webkit-font-smoothing:antialiased;
+    line-height:1.5;
+  }
+  h1,h2,h3,.font-display{
+    font-family:'Fraunces',serif;
+    font-weight:500;
+    margin:0;
+    letter-spacing:-0.01em;
+  }
+  p{margin:0;}
+  img{max-width:100%;display:block;}
+  a{color:inherit;text-decoration:none;}
+  ul{margin:0;padding:0;list-style:none;}
+  button{font-family:inherit;cursor:pointer;}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 32px;}
+  @media(max-width:640px){.wrap{padding:0 20px;}}
+
+  /* focus visibility */
+  a:focus-visible,button:focus-visible{outline:2px solid var(--brass);outline-offset:3px;}
+  @media (prefers-reduced-motion: reduce){
+    *{animation-duration:0.001ms !important;transition-duration:0.001ms !important;}
+  }
+
+  /* ---------- HEADER ---------- */
+  .site-header{
+    position:sticky;top:0;z-index:50;
+    background:rgba(246,243,236,0.92);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--line);
+  }
+  .site-header .wrap{
+    display:flex;align-items:center;justify-content:space-between;
+    height:76px;
+  }
+  .logo{
+    font-family:'Fraunces',serif;
+    font-size:22px;
+    font-weight:600;
+    letter-spacing:0.01em;
+  }
+  .logo span{color:var(--brass);}
+  .nav-links{display:flex;gap:36px;font-size:15px;}
+  .nav-links a{position:relative;padding:4px 0;}
+  .nav-links a::after{
+    content:"";position:absolute;left:0;bottom:0;width:0;height:1px;background:var(--ink);
+    transition:width .25s ease;
+  }
+  .nav-links a:hover::after{width:100%;}
+  .header-cta{
+    display:flex;align-items:center;gap:20px;
+  }
+  .btn{
+    display:inline-flex;align-items:center;justify-content:center;
+    padding:13px 26px;
+    font-size:14px;font-weight:600;
+    border-radius:var(--radius-s);
+    border:1px solid var(--ink);
+    background:var(--ink);
+    color:var(--paper);
+    transition:background .25s ease, color .25s ease, border-color .25s ease;
+  }
+  .btn:hover{background:var(--ink-soft);}
+  .btn-outline{
+    background:transparent;color:var(--ink);border:1px solid var(--ink);
+  }
+  .btn-outline:hover{background:var(--ink);color:var(--paper);}
+  .btn-brass{
+    background:var(--brass);border-color:var(--brass);color:var(--ink);
+  }
+  .btn-brass:hover{background:var(--brass-deep);border-color:var(--brass-deep);color:var(--white);}
+  .menu-toggle{display:none;background:none;border:none;padding:8px;}
+  .menu-toggle svg{width:24px;height:24px;}
+
+  /* ---------- HERO / BANNER ---------- */
+  .hero{
+    background:var(--ink);
+    color:var(--paper);
+    overflow:hidden;
+  }
+  .hero .wrap{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    align-items:center;
+    gap:40px;
+    padding-top:64px;
+    padding-bottom:0;
+  }
+  .hero-copy{padding-bottom:80px;}
+  .hero-kicker{
+    font-size:14px;color:var(--brass);
+    margin-bottom:22px;
+    display:flex;align-items:center;gap:10px;
+  }
+  .hero-kicker::before{content:"";width:26px;height:1px;background:var(--brass);}
+  .hero h1{
+    font-size:clamp(38px,5vw,64px);
+    line-height:1.04;
+    color:var(--white);
+    max-width:11ch;
+  }
+  .hero p.lede{
+    margin-top:24px;
+    font-size:17px;
+    color:#c9c6bd;
+    max-width:38ch;
+  }
+  .hero-actions{margin-top:38px;display:flex;gap:16px;flex-wrap:wrap;}
+  .hero-price-row{
+    margin-top:44px;
+    display:flex;gap:36px;
+    border-top:1px solid #2a2a27;
+    padding-top:24px;
+    max-width:420px;
+  }
+  .hero-price-row div{flex:1;}
+  .hero-price-row .num{font-family:'Fraunces',serif;font-size:26px;color:var(--white);}
+  .hero-price-row .lbl{font-size:12.5px;color:#9c988d;margin-top:4px;}
+
+  .hero-visual{
+    position:relative;
+    height:100%;
+    display:flex;
+    align-items:flex-end;
+    justify-content:center;
+  }
+  .hero-visual .frame{
+    width:100%;
+    aspect-ratio:4/5;
+    background:linear-gradient(160deg,#1c1c19,#0d0d0c 70%);
+    border:1px solid #262622;
+    border-radius:4px 4px 0 0;
+    display:flex;align-items:center;justify-content:center;
+    color:#726e63;
+    font-size:13px;
+    text-align:center;
+    padding:24px;
+    position:relative;
+  }
+  .hero-visual .frame img{
+    position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border-radius:4px 4px 0 0;
+  }
+
+  /* ---------- TICKER ---------- */
+  .ticker{
+    background:var(--brass);
+    color:var(--ink);
+    overflow:hidden;
+    white-space:nowrap;
+    border-bottom:1px solid var(--brass-deep);
+  }
+  .ticker-track{
+    display:inline-flex;
+    animation:scroll 26s linear infinite;
+  }
+  .ticker-track span{
+    padding:12px 40px;
+    font-size:13px;
+    font-weight:600;
+    letter-spacing:0.02em;
+    display:inline-flex;align-items:center;gap:10px;
+  }
+  .ticker-track span::after{content:"•";opacity:.5;margin-left:40px;}
+  @keyframes scroll{
+    0%{transform:translateX(0);}
+    100%{transform:translateX(-50%);}
+  }
+
+  /* ---------- SECTION HEADS ---------- */
+  .section{padding:96px 0;}
+  @media(max-width:640px){.section{padding:64px 0;}}
+  .section-head{
+    display:flex;justify-content:space-between;align-items:flex-end;
+    gap:24px;margin-bottom:56px;
+    flex-wrap:wrap;
+  }
+  .section-head h2{
+    font-size:clamp(28px,3.4vw,40px);
+    max-width:14ch;
+  }
+  .section-head p{color:var(--grey);max-width:36ch;font-size:15.5px;}
+
+  /* ---------- PRODUCT ---------- */
+  .product-section{background:var(--paper-2);}
+  .product-card{
+    display:grid;
+    grid-template-columns:1.1fr 1fr;
+    gap:0;
+    background:var(--white);
+    border:1px solid var(--line);
+  }
+  .product-gallery{
+    background:#efece3;
+    padding:48px;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:16px;
+  }
+  .product-gallery .g-item{
+    aspect-ratio:1/1;
+    background:linear-gradient(160deg,#e7e2d4,#d9d3c2);
+    border:1px solid var(--line);
+    display:flex;align-items:center;justify-content:center;
+    color:#8b8778;font-size:12.5px;text-align:center;padding:12px;
+    overflow:hidden;position:relative;
+  }
+  .product-gallery .g-item img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;}
+  .product-gallery .g-item.main{grid-column:1/3;aspect-ratio:16/11;}
+
+  .product-info{padding:56px;display:flex;flex-direction:column;}
+  .product-tag{
+    font-size:12.5px;color:var(--brass-deep);font-weight:600;margin-bottom:14px;
+  }
+  .product-info h3{font-size:30px;max-width:16ch;}
+  .stars{display:flex;align-items:center;gap:8px;margin-top:14px;color:var(--brass);font-size:14px;}
+  .stars .count{color:var(--grey);}
+  .price-block{display:flex;align-items:baseline;gap:12px;margin-top:22px;}
+  .price-block .now{font-family:'Fraunces',serif;font-size:30px;}
+  .price-block .was{color:var(--grey);text-decoration:line-through;font-size:16px;}
+  .price-block .off{color:var(--brass-deep);font-size:13.5px;font-weight:600;}
+  .product-desc{margin-top:20px;color:var(--grey);font-size:15px;max-width:46ch;}
+
+  .spec-list{margin-top:28px;border-top:1px solid var(--line);}
+  .spec-list li{
+    display:flex;justify-content:space-between;
+    padding:13px 0;border-bottom:1px solid var(--line);
+    font-size:14.5px;
+  }
+  .spec-list li span:first-child{color:var(--grey);}
+  .spec-list li span:last-child{font-weight:500;}
+
+  .product-actions{margin-top:32px;display:flex;gap:14px;flex-wrap:wrap;}
+  .cod-note{
+    margin-top:18px;font-size:13px;color:var(--grey);
+    display:flex;align-items:center;gap:8px;
+  }
+  .cod-note svg{width:16px;height:16px;flex-shrink:0;color:var(--brass-deep);}
+
+  /* ---------- TRUST STRIP ---------- */
+  .trust-strip{
+    background:var(--ink);color:var(--paper);
+  }
+  .trust-strip .wrap{
+    display:grid;grid-template-columns:repeat(4,1fr);
+  }
+  .trust-item{
+    padding:44px 28px;
+    border-right:1px solid #262622;
+    display:flex;flex-direction:column;gap:14px;
+  }
+  .trust-item:last-child{border-right:none;}
+  .trust-item svg{width:26px;height:26px;color:var(--brass);}
+  .trust-item h4{font-family:'Fraunces',serif;font-weight:500;font-size:18px;color:var(--white);}
+  .trust-item p{font-size:13.5px;color:#a9a599;}
+  @media(max-width:900px){
+    .trust-strip .wrap{grid-template-columns:repeat(2,1fr);}
+    .trust-item:nth-child(2){border-right:none;}
+    .trust-item{border-bottom:1px solid #262622;}
+  }
+  @media(max-width:520px){
+    .trust-strip .wrap{grid-template-columns:1fr;}
+    .trust-item{border-right:none;}
+  }
+
+  /* ---------- WHY / CRAFT BAND ---------- */
+  .craft-band{
+    display:grid;grid-template-columns:0.9fr 1.1fr;gap:60px;align-items:center;
+  }
+  .craft-band .visual{
+    aspect-ratio:1/1;background:linear-gradient(150deg,#e7e2d4,#efeadf);
+    border:1px solid var(--line);
+    display:flex;align-items:center;justify-content:center;color:#8b8778;font-size:13px;text-align:center;
+    position:relative;overflow:hidden;
+  }
+  .craft-band .visual img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;}
+  .craft-list{display:flex;flex-direction:column;gap:0;margin-top:32px;}
+  .craft-list li{
+    padding:22px 0;border-top:1px solid var(--line);
+    display:flex;gap:20px;
+  }
+  .craft-list li:last-child{border-bottom:1px solid var(--line);}
+  .craft-list .mark{font-family:'Fraunces',serif;color:var(--brass-deep);font-size:15px;padding-top:2px;}
+  .craft-list h4{font-size:17px;margin-bottom:6px;}
+  .craft-list p{font-size:14.5px;color:var(--grey);max-width:46ch;}
+
+  /* ---------- TESTIMONIALS ---------- */
+  .testimonial-section{background:var(--ink);color:var(--paper);}
+  .testimonial-section .section-head p{color:#a9a599;}
+  .testimonial-section .section-head h2{color:var(--white);}
+  .t-scroll{
+    display:flex;gap:20px;overflow-x:auto;padding-bottom:12px;
+    scroll-snap-type:x mandatory;
+    margin:0 -32px;padding-left:32px;padding-right:32px;
+  }
+  @media(max-width:640px){.t-scroll{margin:0 -20px;padding-left:20px;padding-right:20px;}}
+  .t-scroll::-webkit-scrollbar{height:6px;}
+  .t-scroll::-webkit-scrollbar-thumb{background:#33332e;border-radius:4px;}
+  .t-card{
+    flex:0 0 340px;
+    scroll-snap-align:start;
+    background:var(--ink-soft);
+    border:1px solid #29291f;
+    padding:32px;
+  }
+  .t-quote{color:var(--brass);font-family:'Fraunces',serif;font-size:34px;line-height:1;margin-bottom:14px;}
+  .t-card p.body{font-size:15px;color:#d4d1c6;line-height:1.65;min-height:110px;}
+  .t-foot{display:flex;align-items:center;gap:12px;margin-top:24px;}
+  .t-avatar{
+    width:40px;height:40px;border-radius:50%;
+    background:#2c2c26;flex-shrink:0;
+    display:flex;align-items:center;justify-content:center;
+    font-family:'Fraunces',serif;color:var(--brass);font-size:15px;
+  }
+  .t-name{font-size:14.5px;font-weight:600;color:var(--white);}
+  .t-loc{font-size:12.5px;color:#8f8b7f;}
+  .t-stars{color:var(--brass);font-size:13px;margin-top:2px;}
+
+  /* ---------- FAQ ---------- */
+  .faq-section .wrap{
+    display:grid;grid-template-columns:0.8fr 1.2fr;gap:60px;
+  }
+  .faq-list{border-top:1px solid var(--line);}
+  .faq-item{border-bottom:1px solid var(--line);}
+  .faq-q{
+    width:100%;background:none;border:none;text-align:left;
+    padding:24px 0;display:flex;justify-content:space-between;align-items:center;
+    gap:20px;font-size:16.5px;font-family:'Fraunces',serif;font-weight:500;color:var(--ink);
+  }
+  .faq-q .icon{
+    flex-shrink:0;width:22px;height:22px;position:relative;
+  }
+  .faq-q .icon::before,.faq-q .icon::after{
+    content:"";position:absolute;background:var(--ink);
+  }
+  .faq-q .icon::before{left:0;top:50%;width:100%;height:1.5px;transform:translateY(-50%);}
+  .faq-q .icon::after{top:0;left:50%;width:1.5px;height:100%;transform:translateX(-50%);transition:transform .25s ease;}
+  .faq-item.open .faq-q .icon::after{transform:translateX(-50%) rotate(90deg);opacity:0;}
+  .faq-a{
+    max-height:0;overflow:hidden;transition:max-height .3s ease;
+  }
+  .faq-item.open .faq-a{max-height:220px;}
+  .faq-a p{padding:0 0 26px;font-size:14.5px;color:var(--grey);max-width:60ch;line-height:1.7;}
+
+  /* ---------- COMING SOON ---------- */
+  .soon-section{background:var(--paper-2);}
+  .soon-grid{
+    display:grid;grid-template-columns:repeat(3,1fr);gap:24px;
+  }
+  @media(max-width:900px){.soon-grid{grid-template-columns:1fr;}}
+  .soon-card{
+    background:var(--white);border:1px solid var(--line);
+    display:flex;flex-direction:column;
+  }
+  .soon-visual{
+    aspect-ratio:4/5;
+    background:linear-gradient(155deg,#e2ddcd,#f0ece1);
+    display:flex;align-items:center;justify-content:center;
+    color:#928d7c;font-size:13px;text-align:center;padding:20px;
+    position:relative;overflow:hidden;
+  }
+  .soon-visual img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;}
+  .soon-badge{
+    position:absolute;top:16px;left:16px;
+    background:var(--ink);color:var(--paper);
+    font-size:11.5px;font-weight:600;padding:7px 12px;border-radius:2px;
+    letter-spacing:0.02em;
+  }
+  .soon-body{padding:24px 26px 28px;}
+  .soon-body h4{font-size:19px;margin-bottom:8px;}
+  .soon-body p{font-size:14px;color:var(--grey);}
+  .soon-month{
+    margin-top:16px;font-size:13px;color:var(--brass-deep);font-weight:600;
+    display:flex;align-items:center;gap:8px;
+  }
+  .soon-month::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--brass);}
+
+  /* ---------- NEWSLETTER / CTA STRIP ---------- */
+  .cta-strip{background:var(--ink);color:var(--paper);}
+  .cta-strip .wrap{
+    display:flex;justify-content:space-between;align-items:center;gap:32px;
+    padding:64px 32px;flex-wrap:wrap;
+  }
+  .cta-strip h3{color:var(--white);font-size:28px;max-width:16ch;}
+  .cta-strip p{color:#a9a599;margin-top:10px;font-size:15px;max-width:40ch;}
+  .cta-form{display:flex;gap:0;max-width:380px;width:100%;}
+  .cta-form input{
+    flex:1;padding:15px 18px;border:1px solid #35352d;background:#161613;
+    color:var(--paper);font-size:14.5px;border-right:none;
+  }
+  .cta-form input::placeholder{color:#8f8b7f;}
+  .cta-form button{
+    padding:15px 22px;background:var(--brass);color:var(--ink);border:1px solid var(--brass);
+    font-weight:600;font-size:14px;white-space:nowrap;
+  }
+  .cta-form button:hover{background:var(--brass-deep);color:var(--white);}
+
+  /* ---------- FOOTER ---------- */
+  footer{background:#0a0a09;color:#a9a599;}
+  .footer-top{
+    display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:40px;
+    padding:72px 0 56px;
+  }
+  @media(max-width:900px){.footer-top{grid-template-columns:1fr 1fr;row-gap:44px;}}
+  @media(max-width:520px){.footer-top{grid-template-columns:1fr;}}
+  .footer-brand .logo{color:var(--white);}
+  .footer-brand p{margin-top:18px;font-size:14px;color:#7c7869;max-width:32ch;line-height:1.7;}
+  .footer-social{display:flex;gap:14px;margin-top:24px;}
+  .footer-social a{
+    width:36px;height:36px;border:1px solid #262622;border-radius:50%;
+    display:flex;align-items:center;justify-content:center;transition:border-color .2s ease,color .2s ease;
+  }
+  .footer-social a:hover{border-color:var(--brass);color:var(--brass);}
+  .footer-social svg{width:16px;height:16px;}
+  .footer-col h5{color:var(--white);font-size:14.5px;font-weight:600;margin-bottom:20px;font-family:'Inter',sans-serif;}
+  .footer-col ul{display:flex;flex-direction:column;gap:13px;}
+  .footer-col a{font-size:14px;color:#a9a599;transition:color .2s ease;}
+  .footer-col a:hover{color:var(--brass);}
+  .footer-bottom{
+    border-top:1px solid #1c1c19;
+    padding:26px 0;
+    display:flex;justify-content:space-between;align-items:center;
+    flex-wrap:wrap;gap:14px;
+    font-size:13px;color:#726e60;
+  }
+  .footer-payments{display:flex;gap:10px;align-items:center;}
+  .footer-payments span{
+    border:1px solid #262622;padding:6px 10px;border-radius:2px;font-size:11.5px;color:#8f8b7f;
+  }
+
+  /* ---------- RESPONSIVE ---------- */
+  @media(max-width:960px){
+    .hero .wrap{grid-template-columns:1fr;padding-top:40px;}
+    .hero-visual{order:-1;}
+    .hero-visual .frame{aspect-ratio:16/10;}
+    .hero-copy{padding-bottom:48px;}
+    .product-card{grid-template-columns:1fr;}
+    .product-gallery{padding:32px;}
+    .product-info{padding:36px 32px 44px;}
+    .craft-band{grid-template-columns:1fr;gap:36px;}
+    .faq-section .wrap{grid-template-columns:1fr;gap:20px;}
+  }
+  @media(max-width:760px){
+    .nav-links{display:none;}
+    .menu-toggle{display:flex;}
+    .header-cta .btn-outline{display:none;}
+  }
+  @media(max-width:640px){
+    .hero-actions .btn{flex:1;}
+    .hero-price-row{gap:20px;}
+    .cta-strip .wrap{padding:48px 20px;}
+  }
+</style>
+</head>
+<body>
+
+<!-- ================= HEADER ================= -->
+<header class="site-header">
+  <div class="wrap">
+    <a href="index.html" class="logo"> <img src="imgs/logo.png" width="10%" height="auto"></a>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="#product">Shop</a>
+      <a href="#trust">Why Nira's</a>
+      <a href="#testimonials">Reviews</a>
+      <a href="#faqs">FAQs</a>
+      <a href="#coming-soon">Coming Soon</a>
+    </nav>
+    <div class="header-cta">
+      <a href="#product" class="btn btn-outline">Shop Now</a>
+      <button class="menu-toggle" aria-label="Open menu">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+
+
+<!-- ================= PRODUCT ================= -->
+<section class="section product-section" id="product">
+  <div class="wrap">
+
+    
+      
+<style>
+
+
+.timer{
+    display:flex;
+    gap:12px;
+justify-content:center;
+    align-items:center;
+}
+
+.flip-box{
+    text-align:center;
+}
+
+.flip{
+    width:80px;
+    height:90px;
+    background:#111;
+    color:#fff;
+    border-radius:12px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:42px;
+    font-weight:700;
+    position:relative;
+    overflow:hidden;
+    box-shadow:0 8px 18px rgba(0,0,0,.2);
+}
+
+.flip::after{
+    content:"";
+    position:absolute;
+    top:50%;
+    left:0;
+    width:100%;
+    height:1px;
+    background:rgba(255,255,255,.15);
+}
+
+.label{
+    margin-top:8px;
+    font-size:12px;
+    letter-spacing:2px;
+    color:#666;
+}
+
+.flip.animate{
+    animation:flip .4s ease;
+}
+
+@keyframes flip{
+    0%{
+        transform:rotateX(0deg);
+    }
+    50%{
+        transform:rotateX(90deg);
+    }
+    100%{
+        transform:rotateX(0deg);
+    }
+}
+
+@media(max-width:600px){
+
+.flip{
+    width:60px;
+    height:70px;
+    font-size:30px;
+}
+
+.timer{
+    gap:8px;
+}
+
+}
+</style>
+<div class="timer">
+
+    <div class="flip-box">
+        <div class="flip" id="hours">00</div>
+        <div class="label">Hr</div>
+    </div>
+
+    <div class="flip-box">
+        <div class="flip" id="minutes">00</div>
+        <div class="label">Min</div>
+    </div>
+
+    <div class="flip-box">
+        <div class="flip" id="seconds">00</div>
+        <div class="label">Sec</div>
+    </div>
+
+</div>
+
+<script>
+
+const h=document.getElementById("hours");
+const m=document.getElementById("minutes");
+const s=document.getElementById("seconds");
+
+let prev={
+    h:"",
+    m:"",
+    s:""
+};
+
+function flip(el,val,key){
+    if(prev[key]!==val){
+        el.classList.remove("animate");
+        void el.offsetWidth;
+        el.classList.add("animate");
+        el.textContent=val;
+        prev[key]=val;
+    }
+}
+
+function updateTimer(){
+
+    const now=new Date();
+
+    const midnight=new Date(
+        now.getFullYear(),
+        now.getMonth(),
+        now.getDate()+1,
+        0,0,0
+    );
+
+    const diff=midnight-now;
+
+    const hrs=Math.floor(diff/(1000*60*60));
+    const mins=Math.floor((diff%(1000*60*60))/(1000*60));
+    const secs=Math.floor((diff%(1000*60))/1000);
+
+    flip(h,String(hrs).padStart(2,"0"),"h");
+    flip(m,String(mins).padStart(2,"0"),"m");
+    flip(s,String(secs).padStart(2,"0"),"s");
+
+}
+
+updateTimer();
+setInterval(updateTimer,1000);
+
+</script>
+
+<br>
+    <div class="product-card">
+      <div class="product-gallery">
+        <div class="g-item main">
+          <img src="imgs/pbanner.png" alt="Nira's Watches product photo, front view" onerror="this.style.display='none'">
+
+        </div>
+        <div class="g-item">
+          <img src="imgs/two.png" alt="Nira's Watches product photo, side view" onerror="this.style.display='none'">
+          
+        </div>
+        <div class="g-item">
+          <img src="imgs/three.png" alt="Nira's Watches worn on wrist" onerror="this.style.display='none'">
+          
+        </div>
+      </div>
+
+      <div class="product-info">
+        <div class="product-tag">Blackout Collection</div>
+        <h3>The Octagon — Full Black</h3>
+        <div class="stars" aria-label="Rated 4.8 out of 5">
+          ★★★★★ <span class="count">4.8 (1.4k reviews)</span>
+        </div>
+
+        <div class="price-block">
+          <span class="now">₹250</span>
+          <span class="was">₹500</span>
+          <span class="off">50% off</span>
+        </div>
+        <p class="product-desc">A solid octagonal dial with hand-etched Arabic numerals, stainless steel bracelet and a foldover clasp — quietly built for daily wear.</p>
+
+        <ul class="spec-list">
+          <li><span>Dial Shape</span><span>Octagonal</span></li>
+          <li><span>Movement</span><span>Quartz</span></li>
+          <li><span>Strap</span><span>Stainless Steel, Foldover</span></li>
+          <li><span>Water Resistance</span><span>Yes</span></li>
+          <li><span>Warranty</span><span>1 Year</span></li>
+        </ul>
+
+        <div class="product-actions" style="justify-content:center;">
+          <a href="checkout.html" class="btn btn-outline">Buy Now</a>
+        </div>
+
+
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<style>
+    * {
+        box-sizing: border-box;
+    }
+
+    .gallery-box {
+        width: 100%;
+        max-width: 1200px;
+        margin: 30px auto;
+        padding: 15px;
+        background: #fff;
+    }
+
+    /* =========================
+       GALLERY GRID
+    ========================= */
+
+    .gallery-grid {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        gap: 10px;
+    }
+
+    .gallery-item {
+        width: 100%;
+        aspect-ratio: 1 / 1;
+        overflow: hidden;
+        border-radius: 8px;
+        cursor: pointer;
+        background: #eee;
+    }
+
+    .gallery-item img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+        transition: transform 0.25s ease;
+    }
+
+    .gallery-item:hover img {
+        transform: scale(1.05);
+    }
+
+    .hidden-item {
+        display: none;
+    }
+
+    /* =========================
+       SEE MORE
+    ========================= */
+
+    .see-more-wrapper {
+        text-align: center;
+        margin-top: 20px;
+    }
+
+    #seeMoreBtn {
+        border: none;
+        background: #111;
+        color: white;
+        padding: 12px 28px;
+        border-radius: 6px;
+        cursor: pointer;
+        font-size: 15px;
+    }
+
+    #seeMoreBtn:hover {
+        background: #333;
+    }
+
+    /* =========================
+       LIGHTBOX
+    ========================= */
+
+    .lightbox {
+        display: none;
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.94);
+        z-index: 99999;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .lightbox.active {
+        display: flex;
+    }
+
+    .lightbox img {
+        max-width: 90%;
+        max-height: 85%;
+        object-fit: contain;
+        border-radius: 5px;
+    }
+
+    /* =========================
+       LIGHTBOX BUTTONS
+    ========================= */
+
+    .close-btn,
+    .prev-btn,
+    .next-btn {
+        position: absolute;
+        border: none;
+        background: rgba(255, 255, 255, 0.15);
+        color: white;
+        cursor: pointer;
+        border-radius: 50%;
+        width: 50px;
+        height: 50px;
+        font-size: 28px;
+        z-index: 100000;
+    }
+
+    .close-btn {
+        top: 20px;
+        right: 25px;
+    }
+
+    .prev-btn {
+        left: 25px;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+
+    .next-btn {
+        right: 25px;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+
+    .close-btn:hover,
+    .prev-btn:hover,
+    .next-btn:hover {
+        background: rgba(255, 255, 255, 0.3);
+    }
+
+    /* =========================
+       MOBILE
+       STILL 5 IMAGES PER ROW
+    ========================= */
+
+    @media (max-width: 700px) {
+
+        .gallery-box {
+            padding: 8px;
+            margin: 20px auto;
+        }
+
+        .gallery-grid {
+            grid-template-columns: repeat(5, 1fr);
+            gap: 5px;
+        }
+
+        .gallery-item {
+            border-radius: 5px;
+        }
+
+        .prev-btn {
+            left: 8px;
+        }
+
+        .next-btn {
+            right: 8px;
+        }
+
+        .lightbox img {
+            max-width: 82%;
+            max-height: 80%;
+        }
+
+        .close-btn {
+            top: 15px;
+            right: 15px;
+        }
+    }
+
+    /* =========================
+       SMALL MOBILE
+       STILL 5 IMAGES PER ROW
+    ========================= */
+
+    @media (max-width: 450px) {
+
+        .gallery-box {
+            padding: 5px;
+        }
+
+        .gallery-grid {
+            grid-template-columns: repeat(5, 1fr);
+            gap: 4px;
+        }
+
+        .gallery-item {
+            border-radius: 4px;
+        }
+
+        .see-more-wrapper {
+            margin-top: 15px;
+        }
+
+        #seeMoreBtn {
+            padding: 10px 24px;
+            font-size: 14px;
+        }
+
+        .close-btn,
+        .prev-btn,
+        .next-btn {
+            width: 44px;
+            height: 44px;
+            font-size: 24px;
+        }
+    }
+</style>
+
+
+<!-- =========================
+     GALLERY
+========================= -->
+
+<div class="gallery-box">
+<h3>Photos from customers</h3><br>
+    <div class="gallery-grid" id="gallery"></div>
+
+    <div class="see-more-wrapper">
+        <button id="seeMoreBtn">
+            See More
+        </button>
+    </div>
+
+</div>
+
+
+<!-- =========================
+     FULL SCREEN IMAGE VIEW
+========================= -->
+
+<div class="lightbox" id="lightbox">
+
+    <button
+        type="button"
+        class="close-btn"
+        id="closeBtn">
+        &times;
+    </button>
+
+    <button
+        type="button"
+        class="prev-btn"
+        id="prevBtn">
+        &#10094;
+    </button>
+
+    <img
+        id="lightboxImage"
+        src=""
+        alt="Gallery Image">
+
+    <button
+        type="button"
+        class="next-btn"
+        id="nextBtn">
+        &#10095;
+    </button>
+
+</div>
+
+
+<script>
+
+/*
+=================================================
+GOOGLE DRIVE IMAGE IDs
+=================================================
+
+Yaha Google Drive images ke FILE IDs paste karo.
+
+Example Drive URL:
+
+https://drive.google.com/file/d/ABC123456/view
+
+File ID:
+
+ABC123456
+
+=================================================
+*/
+
+
+const imageIds = [
+
+"18Kx8mR266t5Ht7OJoW8xUbpwD559b8cv", "1pl2qy7ZaktcOUkNrGtbsbcyvRMlwychb", "1HzXmsUSteT6IJDaAF7l8tiZuKv6PZCwG", "1m06FviG1iTZRO4fMN4-mHWQeXrhUUSo8", "13rJ5Fu54VHNOGIOKR7z11y4fdO11E-1_", "1x5fU5zU1XLZM0ZhGEw39mUGBykFfl-uI", "193n1_-yvxvJ3rEe7IfQujf4MkGxPn_mA", "1Y51ayusEz6kgc6KYyKmU4s6fB3CxUk-G", "1HHOxE8hKOWVLfPTjq4OyXfviWwdLvFgh", "1MsHSh4xa0B5j5H8YzAVFFr1LUKBUg1Ge", "1Kak5XMlO_i5CSOfcbGXmyvmqYA7Du6zv", "1I6_FjVo8EjCklBQfCU0iqcON7xKRbgsr", "1SlhgP6Z9APLHxCfsZgLatEZ6usTU3WRv", "1h411UMEJtTXPz_D-2oYiBHMjqGLCqPuV", "1ONXnAZDtzDZOsYtckhVzgXr4S6MLbyDB", "1cEvvhNPmOopPzksGYFsBSjbXv-WuauAN", "1LSx6NE0XsGNY3BsK9HoMPVzDiswINjYI", "1HQlR6wDPTgRSbeVQteEduDzKhZKLuaEK", "1vjVjWJnxPa3If3OYp9oSyUZnTYg0-5HA", "1P1aG7w3TZTRE7CkbGIVeiqQLoz12v-qR", "13amyRZS8Zo9BKDjplp0RkmI4Fq-IlgVp", "1QxKvtYClXEt1pyrZICDxGXL2OwzzDV3D", "144KVsd1GEHTIDBqOmi9IRG2XfuJNs5Gg", "1P62IFshM1ADWZ2_ebi68oWASM-QPhyz1", "18DC3RNf5oo_PMauSZQMLEawnij60JZTP", "1jG5VKpLY9xduVm6V4W6odudKV-L7oh8a", "1NoyMmM5UP2d4403r84JG1nGktVbeXiCR", "1Mf_WdGT4v_LFo98JKZ4AYvpzJ3hURFLk", "1KTc7xptljrOMGXv5bzcDvgbWhh_gnlfk", "10nKa24pD2aylTNZzSbj2J2Qdy4UB5jPU", "1otGF_6af5lmZKhQV-auDKrEB5UaSowd9", "12WMyFAmCuzx9AL3Z_zbbSJaOItRXoXTN", "1A-h1b-xxH1E_GAiJHPX5zE6nUwrWLSDx", "1BugMh0yxfkcIda9FctMXqWzhc7xLp3br", "1rXPapWFKdq2LYbcVXVTVnVYKgxHqCMPl", "16mKObLGiCw6obIpENR-hC0uzQrefI_DL", "1En8dkWtFZCwAz_NdgEM-Qt4ES6f-rBEP", "1WHw3wjIxEokEMyY8lbZF-BqfadIzwhVn", "1eZDgZX479Y0YGuAQTabv38TV_LS50ZSQ", "1FoZPvmfbiI1p0CwJmjTvqFP9OYRdINWZ", "1cKmmTjCFfKMHrygoOOCG99g_Ygs4yHxk", "1JOtH3zQzLw3poXM8a1sviLGdJ-fHT3sh", "1jJQtE6KGuMb_w1NMDe12HpIOYuat0dB-", "1n1qpiSchwDh40T63BVD_XF1KNCr-gcwc", "1LfmtfCJzQwfTYpvLd9hAshqHKQSnIOhj", "1c8tSDypjWrxmVv29Fa9ZMUkzTb-aonIs", "1uMTIeiCn22wtZCB_r5nDkdtPYTvIdtK9", "1zZ7deRs4abWJ4lZ4ONQJ8YyjR7GlD4hR", "1Ep8d_Nc1p_N9vQXeRAwWrnDGAo-NrHt8", "1lcPhcT5kxvrPqpNkDJhFp_AZThAYmg81", "1FSg3tgoZGKV2lLxR13IrQEz3PdXL1Z7z", "1063WuG8ikU23639J6gtOgosAq2b4YOt2", "1ojthnG6XHHZ9bwlxPQhw8Lsleiqp168t", "1pf-sdStU3963W0NPaWfya-50RnNSiE9w", "1lH-PLI0znGvtbDlNvPKra8B-LQs-f5s2", "1YHlWQQ2Ie4EbmM_9ObhfwD_cxZBMtI6j", "1LGsNUq3-F5tPIBzRrMG59oK_dHs5Vvyf", "194KIMlm8-yXG0pO55DxlIm6iSfoVsZyH", "15q-cJQ9XWqBa9uruSmtW12AZUmUZrYA0", "1HrlMom67_TEfDT31UdPmxhFizelWYEXn", "1YFrhis9VwfMXNwxQfvtuArgXfMtc0e1Z", "16Y6uEFRQnes94y1EC5251wfn2e4WW3to", "1I0w3GTh2QiL_zk9ts6dn5XrCFbcv6Zsc", "19YX_vO1IzsrRFhbI3niDfeTnKMyHlKYC", "1LWCtT1UPM0Yl69ML4yNGz9Xg0lTTKFjY", "1aweM0XwfhtlfSY0VNKNM3qFpln15HemF", "1GzQ-CN2oKlVNw0E72l62gmolTfOCXQYW", "14NVqhxLsLcaiJ-H395uMFVruDcc3S5kr", "1JAsBigGzTkbovcEURAjWPQtgNU0_ReYc", "1JXzq5h9517ZJNp0Q_rc95MVWNJWbfyO2", "1Dd_ooVEMXYNIOionjays12zvtpAaG1cA", "1Uh93RToU1uoHH7tgZ_DiCMuLrVgdY75R", "1gW3XX0XqU-zW09pAQN-VPfiPwJu5Bj3M", "1cHjplrhhhTdIxeuHEi2xTwVNJ8T6Hmer", "1Umi1DbrJVNwW1-5bAkNKmRMhxF_D-0p0", "1YeWwtxUHxNyOsycbLANxzG0qLmBORvK5", "1T5eljahKtRp38CmfOMAxle0xIvARmURM", "1i-sEzM2HSTsIkqLdWY_3Aj2Mc5tps7Ne", "1Hu3eoA3-60vXAi4PKgbol3VU9DuQizQL", "1Ybc48xcB3PBZZnLXcxIpufnUB-KsXDg5", "117E-XoAsvZXGh9O9xiar67Iz5MYPhUmZ", "1LgMEz9KSrIGM7xEWJjYAOW922-k8MulB", "1W7jm6C9QF890nbMfNT-rMxEAz3Zmo8JL", "1H7bWzB9LFH9srSPBRoH3k3iykccj3yNb", "1P1dGAHnV2LEx8fL5xc2vXwfTu9Unhc7i", "1s7Q09AYPkg5nE6fE-nVWoXSqF_g5enMz", "1oQUQb97xz_m5I44EkIHy5TXabcFIB9oM", "1CnSlS192ul3fhkwSSMFa-ml2-_mydCMN", "1MtQVWGiJSQqDuh8lK6sH_Tjk4qjmOj7V", "1EuOm1_86TiS1ptAmdvpLvnR6FioNP0Xk", "1VtGytpyb3y9gPukh2YfBooClsLq2HIHT", "1USAPXX2FSd_o-1so0QxJRnj-FYQoeutJ",
+
+
+   /* "1torFNt2fqpvgdD2xV1LzmKQIeOyARVc1",
+
+    "IMAGE_ID_2",
+    "IMAGE_ID_3",
+    "IMAGE_ID_4",
+    "IMAGE_ID_5",
+
+    "IMAGE_ID_6",
+    "IMAGE_ID_7",
+    "IMAGE_ID_8",
+    "IMAGE_ID_9",
+    "IMAGE_ID_10",
+
+    "IMAGE_ID_11",
+    "IMAGE_ID_12",
+    "IMAGE_ID_13",
+    "IMAGE_ID_14",
+    "IMAGE_ID_15",
+
+    "IMAGE_ID_16",
+    "IMAGE_ID_17",
+    "IMAGE_ID_18",
+    "IMAGE_ID_19",
+    "IMAGE_ID_20",*/
+
+    /*
+    Yaha aur IDs add kar sakte ho.
+
+    Total 100 images =
+    5 images × 20 rows
+    */
+
+];
+
+
+/*
+=================================================
+ELEMENTS
+=================================================
+*/
+
+const gallery =
+    document.getElementById("gallery");
+
+const seeMoreBtn =
+    document.getElementById("seeMoreBtn");
+
+const lightbox =
+    document.getElementById("lightbox");
+
+const lightboxImage =
+    document.getElementById("lightboxImage");
+
+const closeBtn =
+    document.getElementById("closeBtn");
+
+const prevBtn =
+    document.getElementById("prevBtn");
+
+const nextBtn =
+    document.getElementById("nextBtn");
+
+
+let currentIndex = 0;
+
+
+/*
+=================================================
+CREATE GALLERY
+=================================================
+*/
+
+imageIds.forEach((id, index) => {
+
+    const item =
+        document.createElement("div");
+
+    item.className =
+        "gallery-item";
+
+
+    /*
+    First 10 images visible.
+
+    5 images per row
+    = 2 rows visible
+    */
+
+    if (index >= 10) {
+
+        item.classList.add(
+            "hidden-item"
+        );
+
+    }
+
+
+    const img =
+        document.createElement("img");
+
+
+    /*
+    Google Drive thumbnail
+    */
+
+    img.src =
+        "https://drive.google.com/thumbnail?id="
+        + id
+        + "&sz=w1000";
+
+
+    img.alt =
+        "Gallery Image "
+        + (index + 1);
+
+
+    img.loading = "lazy";
+
+
+    item.appendChild(img);
+
+
+    /*
+    IMAGE CLICK
+    */
+
+    item.addEventListener(
+        "click",
+        function() {
+
+            openLightbox(index);
+
+        }
+    );
+
+
+    gallery.appendChild(item);
+
+});
+
+
+/*
+=================================================
+SEE MORE
+=================================================
+*/
+
+if (imageIds.length <= 10) {
+
+    seeMoreBtn.style.display =
+        "none";
+
+}
+
+
+seeMoreBtn.addEventListener(
+    "click",
+    function() {
+
+        const hiddenItems =
+            document.querySelectorAll(
+                ".hidden-item"
+            );
+
+
+        hiddenItems.forEach(
+            function(item) {
+
+                item.classList.remove(
+                    "hidden-item"
+                );
+
+            }
+        );
+
+
+        /*
+        Hide See More button
+        */
+
+        seeMoreBtn.style.display =
+            "none";
+
+    }
+);
+
+
+/*
+=================================================
+OPEN LIGHTBOX
+=================================================
+*/
+
+function openLightbox(index) {
+
+    currentIndex = index;
+
+    showImage();
+
+    lightbox.classList.add(
+        "active"
+    );
+
+    /*
+    Stop page scrolling
+    */
+
+    document.body.style.overflow =
+        "hidden";
+
+}
+
+
+/*
+=================================================
+SHOW CURRENT IMAGE
+=================================================
+*/
+
+function showImage() {
+
+    const id =
+        imageIds[currentIndex];
+
+
+    lightboxImage.src =
+        "https://drive.google.com/thumbnail?id="
+        + id
+        + "&sz=w2000";
+
+
+    lightboxImage.alt =
+        "Gallery Image "
+        + (currentIndex + 1);
+
+}
+
+
+/*
+=================================================
+NEXT IMAGE
+=================================================
+*/
+
+nextBtn.addEventListener(
+    "click",
+    function() {
+
+        currentIndex++;
+
+
+        /*
+        Last image ke baad
+        first image
+        */
+
+        if (
+            currentIndex >=
+            imageIds.length
+        ) {
+
+            currentIndex = 0;
+
+        }
+
+
+        showImage();
+
+    }
+);
+
+
+/*
+=================================================
+PREVIOUS IMAGE
+=================================================
+*/
+
+prevBtn.addEventListener(
+    "click",
+    function() {
+
+        currentIndex--;
+
+
+        /*
+        First image ke pehle
+        last image
+        */
+
+        if (
+            currentIndex < 0
+        ) {
+
+            currentIndex =
+                imageIds.length - 1;
+
+        }
+
+
+        showImage();
+
+    }
+);
+
+
+/*
+=================================================
+CLOSE LIGHTBOX
+=================================================
+*/
+
+closeBtn.addEventListener(
+    "click",
+    closeLightbox
+);
+
+
+function closeLightbox() {
+
+    lightbox.classList.remove(
+        "active"
+    );
+
+    lightboxImage.src = "";
+
+    /*
+    Restore page scrolling
+    */
+
+    document.body.style.overflow =
+        "";
+
+}
+
+
+/*
+=================================================
+CLICK OUTSIDE IMAGE = CLOSE
+=================================================
+*/
+
+lightbox.addEventListener(
+    "click",
+    function(e) {
+
+        if (
+            e.target === lightbox
+        ) {
+
+            closeLightbox();
+
+        }
+
+    }
+);
+
+
+/*
+=================================================
+KEYBOARD CONTROLS
+=================================================
+
+← Previous
+→ Next
+ESC Close
+
+=================================================
+*/
+
+document.addEventListener(
+    "keydown",
+    function(e) {
+
+        if (
+            !lightbox.classList.contains(
+                "active"
+            )
+        ) {
+
+            return;
+
+        }
+
+
+        if (
+            e.key === "ArrowRight"
+        ) {
+
+            nextBtn.click();
+
+        }
+
+
+        if (
+            e.key === "ArrowLeft"
+        ) {
+
+            prevBtn.click();
+
+        }
+
+
+        if (
+            e.key === "Escape"
+        ) {
+
+            closeLightbox();
+
+        }
+
+    }
+);
+
+</script>
+
+<!-- ================= TICKER ================= -->
+<div class="ticker" aria-hidden="true">
+  <div class="ticker-track">
+    <span>Fast Shipping Pan-India</span>
+    <span>100% Original Products</span>
+    <span>Cash On Delivery Available</span>
+    <span>1 Year Brand Warranty</span>
+    <span>Fast Shipping Pan-India</span>
+    <span>100% Original Products</span>
+    <span>Cash On Delivery Available</span>
+    <span>1 Year Brand Warranty</span>
+  </div>
+</div>
+
+<!-- ================= CTA / NEWSLETTER ================= -->
+<section class="cta-strip">
+  <div class="wrap">
+    <div>
+      <h3>Be first to know when we drop.</h3>
+      <p>New designs, early access and the occasional discount. No spam, ever.</p>
+    </div>
+    <form class="cta-form" onsubmit="event.preventDefault();">
+      <label for="newsletter-email" class="sr-only" style="position:absolute;left:-9999px;">Email address</label>
+      <input type="email" id="newsletter-email" placeholder="you@email.com" required>
+      <button type="submit">Notify Me</button>
+    </form>
+  </div>
+</section>
+
+<!-- ================= FOOTER ================= -->
+<footer>
+  <div class="wrap">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a href="index.html" class="logo"> <img src="imgs/logo.png" width="10%" height="auto"></a>
+        <p>Premium blackout watches for the everyday wrist. Designed for India, shipped from India.</p>
+        <div class="footer-social">
+          
+        </div>
+      </div>
+      <div class="footer-col">
+        <h5>Links</h5>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="wr.html">Warranty Registration</a></li>
+          <li><a href="https://www.xpressbees.com/shipment/tracking" target="_blank">Consignment Tracking</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Policies</h5>
+        <ul>
+          <li><a href="pp.html">Privacy Policy</a></li>
+          <li><a href="tnc.html">Terms & Conditions</a></li>
+          <li><a href="rnr.html">Returns & Refunds</a></li>
+        
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Connect</h5>
+        <ul>
+          <li><a href="callto:0731 2438115">0731 2438115 [Landline]</a></li>
+          <li><a href="mailto:contact@niras.in">contact@niras.in</a></li>
+          <li><a href="#">77/C, Industrial Area, Rau, Indore, Madhya Pradesh 453331.</a></li>
+
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Nira's Watches | All rights reserved.</span>
+      <div class="footer-payments">
+
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // FAQ accordion
+  document.querySelectorAll('.faq-item').forEach(function(item){
+    item.querySelector('.faq-q').addEventListener('click', function(){
+      var isOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item').forEach(function(i){ i.classList.remove('open'); });
+      if(!isOpen){ item.classList.add('open'); }
+    });
+  });
+
+  // Mobile menu (simple toggle -> scroll to nav links shown as list)
+  var toggle = document.querySelector('.menu-toggle');
+  var navLinks = document.querySelector('.nav-links');
+  toggle.addEventListener('click', function(){
+    var isShown = navLinks.style.display === 'flex';
+    if(isShown){
+      navLinks.style.display = 'none';
+    } else {
+      navLinks.style.cssText = 'display:flex;position:absolute;top:76px;left:0;right:0;background:#f6f3ec;flex-direction:column;gap:0;padding:8px 20px 20px;border-bottom:1px solid #dcd5c4;';
+      navLinks.querySelectorAll('a').forEach(function(a){ a.style.padding = '14px 0'; a.style.borderBottom = '1px solid #dcd5c4'; });
+    }
+  });
+</script>
+
+</body>
+</html>

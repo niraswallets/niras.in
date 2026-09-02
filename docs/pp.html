@@ -1,0 +1,816 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nira's Watches — Timeless, Told in Black</title>
+<meta name="description" content="Nira's Watches — premium blackout watches with Arabic numeral dials. Fast shipping, secure payments, 1 year warranty. Shop the collection.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#0d0d0c;
+    --ink-soft:#1a1a18;
+    --paper:#f6f3ec;
+    --paper-2:#efeadf;
+    --line:#dcd5c4;
+    --brass:#a9812f;
+    --brass-deep:#7c5f24;
+    --white:#ffffff;
+    --grey:#6b675e;
+    --radius-s:2px;
+    --maxw:1240px;
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Inter',sans-serif;
+    -webkit-font-smoothing:antialiased;
+    line-height:1.5;
+  }
+  h1,h2,h3,.font-display{
+    font-family:'Fraunces',serif;
+    font-weight:500;
+    margin:0;
+    letter-spacing:-0.01em;
+  }
+  p{margin:0;}
+  img{max-width:100%;display:block;}
+  a{color:inherit;text-decoration:none;}
+  ul{margin:0;padding:0;list-style:none;}
+  button{font-family:inherit;cursor:pointer;}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 32px;}
+  @media(max-width:640px){.wrap{padding:0 20px;}}
+
+  /* focus visibility */
+  a:focus-visible,button:focus-visible{outline:2px solid var(--brass);outline-offset:3px;}
+  @media (prefers-reduced-motion: reduce){
+    *{animation-duration:0.001ms !important;transition-duration:0.001ms !important;}
+  }
+
+  /* ---------- HEADER ---------- */
+  .site-header{
+    position:sticky;top:0;z-index:50;
+    background:rgba(246,243,236,0.92);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--line);
+  }
+  .site-header .wrap{
+    display:flex;align-items:center;justify-content:space-between;
+    height:76px;
+  }
+  .logo{
+    font-family:'Fraunces',serif;
+    font-size:22px;
+    font-weight:600;
+    letter-spacing:0.01em;
+  }
+  .logo span{color:var(--brass);}
+  .nav-links{display:flex;gap:36px;font-size:15px;}
+  .nav-links a{position:relative;padding:4px 0;}
+  .nav-links a::after{
+    content:"";position:absolute;left:0;bottom:0;width:0;height:1px;background:var(--ink);
+    transition:width .25s ease;
+  }
+  .nav-links a:hover::after{width:100%;}
+  .header-cta{
+    display:flex;align-items:center;gap:20px;
+  }
+  .btn{
+    display:inline-flex;align-items:center;justify-content:center;
+    padding:13px 26px;
+    font-size:14px;font-weight:600;
+    border-radius:var(--radius-s);
+    border:1px solid var(--ink);
+    background:var(--ink);
+    color:var(--paper);
+    transition:background .25s ease, color .25s ease, border-color .25s ease;
+  }
+  .btn:hover{background:var(--ink-soft);}
+  .btn-outline{
+    background:transparent;color:var(--ink);border:1px solid var(--ink);
+  }
+  .btn-outline:hover{background:var(--ink);color:var(--paper);}
+  .btn-brass{
+    background:var(--brass);border-color:var(--brass);color:var(--ink);
+  }
+  .btn-brass:hover{background:var(--brass-deep);border-color:var(--brass-deep);color:var(--white);}
+  .menu-toggle{display:none;background:none;border:none;padding:8px;}
+  .menu-toggle svg{width:24px;height:24px;}
+
+  /* ---------- HERO / BANNER ---------- */
+  .hero{
+    background:var(--ink);
+    color:var(--paper);
+    overflow:hidden;
+  }
+  .hero .wrap{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    align-items:center;
+    gap:40px;
+    padding-top:64px;
+    padding-bottom:0;
+  }
+  .hero-copy{padding-bottom:80px;}
+  .hero-kicker{
+    font-size:14px;color:var(--brass);
+    margin-bottom:22px;
+    display:flex;align-items:center;gap:10px;
+  }
+  .hero-kicker::before{content:"";width:26px;height:1px;background:var(--brass);}
+  .hero h1{
+    font-size:clamp(38px,5vw,64px);
+    line-height:1.04;
+    color:var(--white);
+    max-width:11ch;
+  }
+  .hero p.lede{
+    margin-top:24px;
+    font-size:17px;
+    color:#c9c6bd;
+    max-width:38ch;
+  }
+  .hero-actions{margin-top:38px;display:flex;gap:16px;flex-wrap:wrap;}
+  .hero-price-row{
+    margin-top:44px;
+    display:flex;gap:36px;
+    border-top:1px solid #2a2a27;
+    padding-top:24px;
+    max-width:420px;
+  }
+  .hero-price-row div{flex:1;}
+  .hero-price-row .num{font-family:'Fraunces',serif;font-size:26px;color:var(--white);}
+  .hero-price-row .lbl{font-size:12.5px;color:#9c988d;margin-top:4px;}
+
+  .hero-visual{
+    position:relative;
+    height:100%;
+    display:flex;
+    align-items:flex-end;
+    justify-content:center;
+  }
+  .hero-visual .frame{
+    width:100%;
+    aspect-ratio:4/5;
+    background:linear-gradient(160deg,#1c1c19,#0d0d0c 70%);
+    border:1px solid #262622;
+    border-radius:4px 4px 0 0;
+    display:flex;align-items:center;justify-content:center;
+    color:#726e63;
+    font-size:13px;
+    text-align:center;
+    padding:24px;
+    position:relative;
+  }
+  .hero-visual .frame img{
+    position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border-radius:4px 4px 0 0;
+  }
+
+  /* ---------- TICKER ---------- */
+  .ticker{
+    background:var(--brass);
+    color:var(--ink);
+    overflow:hidden;
+    white-space:nowrap;
+    border-bottom:1px solid var(--brass-deep);
+  }
+  .ticker-track{
+    display:inline-flex;
+    animation:scroll 26s linear infinite;
+  }
+  .ticker-track span{
+    padding:12px 40px;
+    font-size:13px;
+    font-weight:600;
+    letter-spacing:0.02em;
+    display:inline-flex;align-items:center;gap:10px;
+  }
+  .ticker-track span::after{content:"•";opacity:.5;margin-left:40px;}
+  @keyframes scroll{
+    0%{transform:translateX(0);}
+    100%{transform:translateX(-50%);}
+  }
+
+  /* ---------- SECTION HEADS ---------- */
+  .section{padding:96px 0;}
+  @media(max-width:640px){.section{padding:64px 0;}}
+  .section-head{
+    display:flex;justify-content:space-between;align-items:flex-end;
+    gap:24px;margin-bottom:56px;
+    flex-wrap:wrap;
+  }
+  .section-head h2{
+    font-size:clamp(28px,3.4vw,40px);
+    max-width:14ch;
+  }
+  .section-head p{color:var(--grey);max-width:36ch;font-size:15.5px;}
+
+  /* ---------- PRODUCT ---------- */
+  .product-section{background:var(--paper-2);}
+  .product-card{
+    display:grid;
+    grid-template-columns:1.1fr 1fr;
+    gap:0;
+    background:var(--white);
+    border:1px solid var(--line);
+  }
+  .product-gallery{
+    background:#efece3;
+    padding:48px;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:16px;
+  }
+  .product-gallery .g-item{
+    aspect-ratio:1/1;
+    background:linear-gradient(160deg,#e7e2d4,#d9d3c2);
+    border:1px solid var(--line);
+    display:flex;align-items:center;justify-content:center;
+    color:#8b8778;font-size:12.5px;text-align:center;padding:12px;
+    overflow:hidden;position:relative;
+  }
+  .product-gallery .g-item img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;}
+  .product-gallery .g-item.main{grid-column:1/3;aspect-ratio:16/11;}
+
+  .product-info{padding:56px;display:flex;flex-direction:column;}
+  .product-tag{
+    font-size:12.5px;color:var(--brass-deep);font-weight:600;margin-bottom:14px;
+  }
+  .product-info h3{font-size:30px;max-width:16ch;}
+  .stars{display:flex;align-items:center;gap:8px;margin-top:14px;color:var(--brass);font-size:14px;}
+  .stars .count{color:var(--grey);}
+  .price-block{display:flex;align-items:baseline;gap:12px;margin-top:22px;}
+  .price-block .now{font-family:'Fraunces',serif;font-size:30px;}
+  .price-block .was{color:var(--grey);text-decoration:line-through;font-size:16px;}
+  .price-block .off{color:var(--brass-deep);font-size:13.5px;font-weight:600;}
+  .product-desc{margin-top:20px;color:var(--grey);font-size:15px;max-width:46ch;}
+
+  .spec-list{margin-top:28px;border-top:1px solid var(--line);}
+  .spec-list li{
+    display:flex;justify-content:space-between;
+    padding:13px 0;border-bottom:1px solid var(--line);
+    font-size:14.5px;
+  }
+  .spec-list li span:first-child{color:var(--grey);}
+  .spec-list li span:last-child{font-weight:500;}
+
+  .product-actions{margin-top:32px;display:flex;gap:14px;flex-wrap:wrap;}
+  .cod-note{
+    margin-top:18px;font-size:13px;color:var(--grey);
+    display:flex;align-items:center;gap:8px;
+  }
+  .cod-note svg{width:16px;height:16px;flex-shrink:0;color:var(--brass-deep);}
+
+  /* ---------- TRUST STRIP ---------- */
+  .trust-strip{
+    background:var(--ink);color:var(--paper);
+  }
+  .trust-strip .wrap{
+    display:grid;grid-template-columns:repeat(4,1fr);
+  }
+  .trust-item{
+    padding:44px 28px;
+    border-right:1px solid #262622;
+    display:flex;flex-direction:column;gap:14px;
+  }
+  .trust-item:last-child{border-right:none;}
+  .trust-item svg{width:26px;height:26px;color:var(--brass);}
+  .trust-item h4{font-family:'Fraunces',serif;font-weight:500;font-size:18px;color:var(--white);}
+  .trust-item p{font-size:13.5px;color:#a9a599;}
+  @media(max-width:900px){
+    .trust-strip .wrap{grid-template-columns:repeat(2,1fr);}
+    .trust-item:nth-child(2){border-right:none;}
+    .trust-item{border-bottom:1px solid #262622;}
+  }
+  @media(max-width:520px){
+    .trust-strip .wrap{grid-template-columns:1fr;}
+    .trust-item{border-right:none;}
+  }
+
+  /* ---------- WHY / CRAFT BAND ---------- */
+  .craft-band{
+    display:grid;grid-template-columns:0.9fr 1.1fr;gap:60px;align-items:center;
+  }
+  .craft-band .visual{
+    aspect-ratio:1/1;background:linear-gradient(150deg,#e7e2d4,#efeadf);
+    border:1px solid var(--line);
+    display:flex;align-items:center;justify-content:center;color:#8b8778;font-size:13px;text-align:center;
+    position:relative;overflow:hidden;
+  }
+  .craft-band .visual img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;}
+  .craft-list{display:flex;flex-direction:column;gap:0;margin-top:32px;}
+  .craft-list li{
+    padding:22px 0;border-top:1px solid var(--line);
+    display:flex;gap:20px;
+  }
+  .craft-list li:last-child{border-bottom:1px solid var(--line);}
+  .craft-list .mark{font-family:'Fraunces',serif;color:var(--brass-deep);font-size:15px;padding-top:2px;}
+  .craft-list h4{font-size:17px;margin-bottom:6px;}
+  .craft-list p{font-size:14.5px;color:var(--grey);max-width:46ch;}
+
+  /* ---------- TESTIMONIALS ---------- */
+  .testimonial-section{background:var(--ink);color:var(--paper);}
+  .testimonial-section .section-head p{color:#a9a599;}
+  .testimonial-section .section-head h2{color:var(--white);}
+  .t-scroll{
+    display:flex;gap:20px;overflow-x:auto;padding-bottom:12px;
+    scroll-snap-type:x mandatory;
+    margin:0 -32px;padding-left:32px;padding-right:32px;
+  }
+  @media(max-width:640px){.t-scroll{margin:0 -20px;padding-left:20px;padding-right:20px;}}
+  .t-scroll::-webkit-scrollbar{height:6px;}
+  .t-scroll::-webkit-scrollbar-thumb{background:#33332e;border-radius:4px;}
+  .t-card{
+    flex:0 0 340px;
+    scroll-snap-align:start;
+    background:var(--ink-soft);
+    border:1px solid #29291f;
+    padding:32px;
+  }
+  .t-quote{color:var(--brass);font-family:'Fraunces',serif;font-size:34px;line-height:1;margin-bottom:14px;}
+  .t-card p.body{font-size:15px;color:#d4d1c6;line-height:1.65;min-height:110px;}
+  .t-foot{display:flex;align-items:center;gap:12px;margin-top:24px;}
+  .t-avatar{
+    width:40px;height:40px;border-radius:50%;
+    background:#2c2c26;flex-shrink:0;
+    display:flex;align-items:center;justify-content:center;
+    font-family:'Fraunces',serif;color:var(--brass);font-size:15px;
+  }
+  .t-name{font-size:14.5px;font-weight:600;color:var(--white);}
+  .t-loc{font-size:12.5px;color:#8f8b7f;}
+  .t-stars{color:var(--brass);font-size:13px;margin-top:2px;}
+
+  /* ---------- FAQ ---------- */
+  .faq-section .wrap{
+    display:grid;grid-template-columns:0.8fr 1.2fr;gap:60px;
+  }
+  .faq-list{border-top:1px solid var(--line);}
+  .faq-item{border-bottom:1px solid var(--line);}
+  .faq-q{
+    width:100%;background:none;border:none;text-align:left;
+    padding:24px 0;display:flex;justify-content:space-between;align-items:center;
+    gap:20px;font-size:16.5px;font-family:'Fraunces',serif;font-weight:500;color:var(--ink);
+  }
+  .faq-q .icon{
+    flex-shrink:0;width:22px;height:22px;position:relative;
+  }
+  .faq-q .icon::before,.faq-q .icon::after{
+    content:"";position:absolute;background:var(--ink);
+  }
+  .faq-q .icon::before{left:0;top:50%;width:100%;height:1.5px;transform:translateY(-50%);}
+  .faq-q .icon::after{top:0;left:50%;width:1.5px;height:100%;transform:translateX(-50%);transition:transform .25s ease;}
+  .faq-item.open .faq-q .icon::after{transform:translateX(-50%) rotate(90deg);opacity:0;}
+  .faq-a{
+    max-height:0;overflow:hidden;transition:max-height .3s ease;
+  }
+  .faq-item.open .faq-a{max-height:220px;}
+  .faq-a p{padding:0 0 26px;font-size:14.5px;color:var(--grey);max-width:60ch;line-height:1.7;}
+
+  /* ---------- COMING SOON ---------- */
+  .soon-section{background:var(--paper-2);}
+  .soon-grid{
+    display:grid;grid-template-columns:repeat(3,1fr);gap:24px;
+  }
+  @media(max-width:900px){.soon-grid{grid-template-columns:1fr;}}
+  .soon-card{
+    background:var(--white);border:1px solid var(--line);
+    display:flex;flex-direction:column;
+  }
+  .soon-visual{
+    aspect-ratio:4/5;
+    background:linear-gradient(155deg,#e2ddcd,#f0ece1);
+    display:flex;align-items:center;justify-content:center;
+    color:#928d7c;font-size:13px;text-align:center;padding:20px;
+    position:relative;overflow:hidden;
+  }
+  .soon-visual img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;}
+  .soon-badge{
+    position:absolute;top:16px;left:16px;
+    background:var(--ink);color:var(--paper);
+    font-size:11.5px;font-weight:600;padding:7px 12px;border-radius:2px;
+    letter-spacing:0.02em;
+  }
+  .soon-body{padding:24px 26px 28px;}
+  .soon-body h4{font-size:19px;margin-bottom:8px;}
+  .soon-body p{font-size:14px;color:var(--grey);}
+  .soon-month{
+    margin-top:16px;font-size:13px;color:var(--brass-deep);font-weight:600;
+    display:flex;align-items:center;gap:8px;
+  }
+  .soon-month::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--brass);}
+
+  /* ---------- NEWSLETTER / CTA STRIP ---------- */
+  .cta-strip{background:var(--ink);color:var(--paper);}
+  .cta-strip .wrap{
+    display:flex;justify-content:space-between;align-items:center;gap:32px;
+    padding:64px 32px;flex-wrap:wrap;
+  }
+  .cta-strip h3{color:var(--white);font-size:28px;max-width:16ch;}
+  .cta-strip p{color:#a9a599;margin-top:10px;font-size:15px;max-width:40ch;}
+  .cta-form{display:flex;gap:0;max-width:380px;width:100%;}
+  .cta-form input{
+    flex:1;padding:15px 18px;border:1px solid #35352d;background:#161613;
+    color:var(--paper);font-size:14.5px;border-right:none;
+  }
+  .cta-form input::placeholder{color:#8f8b7f;}
+  .cta-form button{
+    padding:15px 22px;background:var(--brass);color:var(--ink);border:1px solid var(--brass);
+    font-weight:600;font-size:14px;white-space:nowrap;
+  }
+  .cta-form button:hover{background:var(--brass-deep);color:var(--white);}
+
+  /* ---------- FOOTER ---------- */
+  footer{background:#0a0a09;color:#a9a599;}
+  .footer-top{
+    display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:40px;
+    padding:72px 0 56px;
+  }
+  @media(max-width:900px){.footer-top{grid-template-columns:1fr 1fr;row-gap:44px;}}
+  @media(max-width:520px){.footer-top{grid-template-columns:1fr;}}
+  .footer-brand .logo{color:var(--white);}
+  .footer-brand p{margin-top:18px;font-size:14px;color:#7c7869;max-width:32ch;line-height:1.7;}
+  .footer-social{display:flex;gap:14px;margin-top:24px;}
+  .footer-social a{
+    width:36px;height:36px;border:1px solid #262622;border-radius:50%;
+    display:flex;align-items:center;justify-content:center;transition:border-color .2s ease,color .2s ease;
+  }
+  .footer-social a:hover{border-color:var(--brass);color:var(--brass);}
+  .footer-social svg{width:16px;height:16px;}
+  .footer-col h5{color:var(--white);font-size:14.5px;font-weight:600;margin-bottom:20px;font-family:'Inter',sans-serif;}
+  .footer-col ul{display:flex;flex-direction:column;gap:13px;}
+  .footer-col a{font-size:14px;color:#a9a599;transition:color .2s ease;}
+  .footer-col a:hover{color:var(--brass);}
+  .footer-bottom{
+    border-top:1px solid #1c1c19;
+    padding:26px 0;
+    display:flex;justify-content:space-between;align-items:center;
+    flex-wrap:wrap;gap:14px;
+    font-size:13px;color:#726e60;
+  }
+  .footer-payments{display:flex;gap:10px;align-items:center;}
+  .footer-payments span{
+    border:1px solid #262622;padding:6px 10px;border-radius:2px;font-size:11.5px;color:#8f8b7f;
+  }
+
+  /* ---------- RESPONSIVE ---------- */
+  @media(max-width:960px){
+    .hero .wrap{grid-template-columns:1fr;padding-top:40px;}
+    .hero-visual{order:-1;}
+    .hero-visual .frame{aspect-ratio:16/10;}
+    .hero-copy{padding-bottom:48px;}
+    .product-card{grid-template-columns:1fr;}
+    .product-gallery{padding:32px;}
+    .product-info{padding:36px 32px 44px;}
+    .craft-band{grid-template-columns:1fr;gap:36px;}
+    .faq-section .wrap{grid-template-columns:1fr;gap:20px;}
+  }
+  @media(max-width:760px){
+    .nav-links{display:none;}
+    .menu-toggle{display:flex;}
+    .header-cta .btn-outline{display:none;}
+  }
+  @media(max-width:640px){
+    .hero-actions .btn{flex:1;}
+    .hero-price-row{gap:20px;}
+    .cta-strip .wrap{padding:48px 20px;}
+  }
+</style>
+</head>
+<body>
+
+<!-- ================= HEADER ================= -->
+<header class="site-header">
+  <div class="wrap">
+    <a href="index.html" class="logo"> <img src="imgs/logo.png" width="10%" height="auto"></a>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="#product">Shop</a>
+      <a href="#trust">Why Nira's</a>
+      <a href="#testimonials">Reviews</a>
+      <a href="#faqs">FAQs</a>
+      <a href="#coming-soon">Coming Soon</a>
+    </nav>
+    <div class="header-cta">
+      <a href="#product" class="btn btn-outline">Shop Now</a>
+      <button class="menu-toggle" aria-label="Open menu">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+
+<!-- ================= PRODUCT ================= -->
+<section class="section product-section" id="product">
+  <div class="wrap">
+    <div class="section-head">
+    <h2>Privacy Policy</h2>
+
+<p><b>Last Updated:</b> September 1, 2026</p>
+
+<p>At <b>Nira's Watches</b>, accessible through <b>www.niras.in</b>, we respect your privacy and are committed to protecting the personal information that you share with us. This Privacy Policy explains how we collect, use, store, protect, and disclose information when you visit our website, browse our products, place an order, contact us, register for warranty services, or otherwise interact with Nira's Watches.</p>
+
+<p>By accessing or using <b>www.niras.in</b>, you acknowledge that you have read and understood this Privacy Policy and agree to the collection and use of information as described below. If you do not agree with any part of this Privacy Policy, please discontinue your use of our website and services.</p>
+
+<p><b>1. About Nira's Watches</b></p>
+
+<p><b>Brand Name:</b> Nira's Watches</p>
+
+<p><b>Website:</b> www.niras.in</p>
+
+<p><b>Contact Email:</b> contact@niras.in</p>
+
+<p><b>Support Email:</b> support@niras.in</p>
+
+<p><b>Contact Number:</b> 0731 2438115</p>
+
+<p><b>Registered/Business Address:</b> 77/C, Industrial Area, Rau, Indore, Madhya Pradesh 453331, India.</p>
+
+<p>For the purpose of this Privacy Policy, references to "Nira's Watches", "Nira's", "we", "us", or "our" mean Nira's Watches and its website, www.niras.in.</p>
+
+<p><b>2. Information We Collect</b></p>
+
+<p>When you use our website or services, we may collect certain information that you voluntarily provide to us, information generated automatically through your use of the website, and information received from service providers involved in processing your order or providing related services.</p>
+
+<p><b>Personal Information:</b> Depending on the services you use, we may collect information such as your full name, mobile number, email address, billing address, shipping address, city, state, postal/PIN code, and other information necessary to process and deliver your order.</p>
+
+<p><b>Order Information:</b> When you purchase a product from us, we may collect information relating to your order, including the products purchased, order amount, transaction status, delivery details, order date, and other information necessary for fulfilling and supporting your order.</p>
+
+<p><b>Payment Information:</b> Payments made through our website may be processed through third-party payment gateways or payment service providers. Depending on the payment method used, these service providers may collect and process payment-related information such as transaction details, payment identifiers, or other information required to authorize and complete a payment. Nira's Watches does not intentionally store complete debit card, credit card, banking passwords, UPI PINs, or other highly sensitive payment credentials on its own servers.</p>
+
+<p><b>Communication Information:</b> If you contact us through email, telephone, contact forms, customer support, or other communication channels, we may collect and retain the information you provide, including the content of your communication, your contact details, and information required to respond to your request.</p>
+
+<p><b>Warranty Information:</b> If you register a product for warranty purposes, we may collect information required to verify your purchase and provide warranty services, such as your name, contact information, product details, purchase information, invoice or order information, and other details reasonably required for warranty verification.</p>
+
+<p><b>3. Information Collected Automatically</b></p>
+
+<p>When you visit <b>www.niras.in</b>, certain technical information may be collected automatically. This may include your IP address, browser type, device type, operating system, approximate geographic region, pages visited, referring pages, date and time of access, time spent on pages, and other technical information that helps us understand how visitors use our website.</p>
+
+<p>This information may be collected through standard web technologies such as server logs, cookies, browser storage, analytics technologies, pixels, or similar technologies. Such information is generally used for website functionality, security, performance monitoring, analytics, and improving the overall user experience.</p>
+
+<p><b>4. Cookies and Similar Technologies</b></p>
+
+<p>Our website may use cookies and similar technologies to provide a better browsing experience, remember certain preferences, maintain website functionality, understand website usage, and improve our services.</p>
+
+<p>Cookies are small text files that may be stored on your device when you visit a website. Some cookies may be essential for the website to function properly, while others may help us understand visitor behavior and website performance.</p>
+
+<p>You may be able to control or disable cookies through your browser settings. However, disabling certain cookies may affect the functionality or availability of some features of our website.</p>
+
+<p><b>5. How We Use Your Information</b></p>
+
+<p>We may use the information we collect for legitimate business and service-related purposes, including processing and fulfilling orders, arranging delivery, providing customer support, responding to inquiries, processing returns and refunds, verifying warranty claims, communicating order updates, preventing fraudulent or unauthorized activity, maintaining website security, improving our products and services, analyzing website performance, and complying with applicable legal and regulatory requirements.</p>
+
+<p>We may also use your contact information to communicate with you regarding your orders, payments, deliveries, warranty, returns, customer support requests, or other service-related matters.</p>
+
+<p>Where permitted by applicable law and subject to your preferences, we may also use information to communicate promotional offers, product launches, updates, discounts, or other information about Nira's Watches. You may request to stop receiving non-essential promotional communications at any time.</p>
+
+<p><b>6. Order Processing and Delivery</b></p>
+
+<p>When you place an order through our website, the information necessary to process and deliver your order may be shared with relevant third-party service providers, including payment processors, logistics companies, courier partners, shipping providers, and other vendors involved in fulfilling your purchase.</p>
+
+<p>Such information may include your name, telephone number, shipping address, PIN code, order details, and other information reasonably necessary to deliver the product and provide related services.</p>
+
+<p>These service providers may process your information according to their own privacy policies and applicable laws.</p>
+
+<p><b>7. Payment Processing</b></p>
+
+<p>We may use third-party payment gateways and payment service providers to process online transactions. When you select a payment method, you may be redirected to or interact with the payment infrastructure of the relevant payment service provider.</p>
+
+<p>Payment service providers may collect information necessary to process your payment and may independently handle certain payment-related information according to their own privacy policies and security practices.</p>
+
+<p>Nira's Watches does not request or ask customers to provide sensitive payment credentials such as UPI PINs, ATM PINs, internet banking passwords, or one-time passwords through email, telephone, or customer support communications.</p>
+
+<p><b>8. Cash on Delivery</b></p>
+
+<p>If you choose Cash on Delivery, we may collect and process the information necessary to verify and fulfill your order, including your name, phone number, shipping address, and order details. This information may be shared with delivery and logistics partners to enable successful delivery and collection of payment.</p>
+
+<p><b>9. Customer Support</b></p>
+
+<p>When you contact our support team, we may use the information you provide to identify your order, investigate your issue, respond to your questions, process requests, and provide after-sales assistance.</p>
+
+<p>You can contact Nira's Watches through <b>support@niras.in</b> for support-related matters or through <b>contact@niras.in</b> for general inquiries.</p>
+
+<p><b>10. Warranty Registration</b></p>
+
+<p>If you register your Nira's Watches product for warranty purposes, the information submitted during registration may be used to verify the product, maintain warranty records, communicate regarding warranty services, and process legitimate warranty claims.</p>
+
+<p>We may request reasonable documentation or information to verify a warranty claim or purchase. Such information will be used only for legitimate business, verification, customer-service, legal, or warranty-related purposes.</p>
+
+<p><b>11. Returns, Refunds and Exchanges</b></p>
+
+<p>If you request a return, refund, replacement, or exchange, we may process the information associated with your order to verify the request and complete the relevant service.</p>
+
+<p>Where required, information may be shared with payment processors, courier partners, logistics providers, or other service providers involved in completing the return, replacement, exchange, or refund.</p>
+
+<p><b>12. How We Protect Your Information</b></p>
+
+<p>We take reasonable administrative, technical, and organizational measures to protect personal information against unauthorized access, misuse, alteration, disclosure, loss, or destruction.</p>
+
+<p>We use reasonable security practices appropriate to the nature of the information we process. However, no method of transmission over the internet or method of electronic storage can be guaranteed to be completely secure. Therefore, while we take reasonable precautions to protect your information, we cannot guarantee absolute security.</p>
+
+<p><b>13. Information Sharing and Disclosure</b></p>
+
+<p>Nira's Watches does not sell or rent your personal information to third parties for their independent marketing purposes.</p>
+
+<p>We may share information with trusted third parties where reasonably necessary to operate our website and provide our services. These parties may include payment processors, courier and logistics providers, hosting providers, website service providers, analytics providers, customer support providers, technology providers, fraud-prevention services, professional advisers, and other service providers working on our behalf.</p>
+
+<p>We may also disclose information when required by applicable law, court order, governmental authority, legal process, or when reasonably necessary to protect our rights, property, customers, website, or business operations.</p>
+
+<p><b>14. Third-Party Service Providers</b></p>
+
+<p>Our website and business operations may rely on third-party services for functions such as payment processing, shipping, analytics, hosting, communications, security, or other technical services.</p>
+
+<p>These third parties may have access to certain information only to the extent reasonably necessary to perform services on our behalf. We expect such service providers to handle information responsibly and in accordance with applicable contractual and legal requirements.</p>
+
+<p><b>15. Third-Party Websites and Links</b></p>
+
+<p>Our website may contain links to third-party websites, payment services, courier tracking pages, social media platforms, or other external services.</p>
+
+<p>Once you leave <b>www.niras.in</b> and access a third-party website or service, that third party's privacy policy and terms may apply. Nira's Watches is not responsible for the privacy practices, content, security, or policies of third-party websites or services that we do not control.</p>
+
+<p><b>16. Children's Privacy</b></p>
+
+<p>Our website and products are intended for general consumers and are not specifically directed toward children. We do not knowingly seek to collect personal information directly from children without appropriate consent where such consent is required under applicable law.</p>
+
+<p>If you believe that a child has provided personal information to us without appropriate authorization, please contact us so that we can review the matter and take reasonable steps where required.</p>
+
+<p><b>17. Data Retention</b></p>
+
+<p>We retain personal information for as long as reasonably necessary to provide our services, fulfill orders, maintain business and transaction records, provide warranty and customer support, resolve disputes, prevent fraud, comply with legal obligations, and enforce our agreements.</p>
+
+<p>The period for which information is retained may vary depending on the nature of the information and the purpose for which it was collected.</p>
+
+<p><b>18. Your Privacy Choices</b></p>
+
+<p>You may contact us regarding personal information that you have provided to us. Depending on applicable law, you may have rights relating to access, correction, updating, deletion, withdrawal of consent, or restriction of certain processing activities.</p>
+
+<p>Some information may need to be retained where required for legal, accounting, security, fraud-prevention, warranty, dispute-resolution, or other legitimate business purposes.</p>
+
+<p>If you no longer wish to receive promotional communications from us, you may contact us at <b>support@niras.in</b> and request that promotional communications be discontinued.</p>
+
+<p><b>19. Accuracy of Information</b></p>
+
+<p>You are responsible for providing accurate and complete information when placing an order, submitting a warranty registration, contacting customer support, or using other services provided through our website.</p>
+
+<p>Providing an incorrect phone number, email address, shipping address, or other information may result in delays or inability to process your order, delivery, return, refund, warranty, or support request.</p>
+
+<p><b>20. Fraud Prevention and Website Security</b></p>
+
+<p>We may collect and process certain information to identify, investigate, and prevent fraudulent transactions, abuse, unauthorized access, suspicious activity, security incidents, or other activities that may harm our customers or business.</p>
+
+<p>We may cooperate with payment providers, logistics partners, security providers, law enforcement authorities, or other relevant parties when reasonably necessary to investigate or prevent suspected fraud or unlawful activity.</p>
+
+<p><b>21. Legal and Regulatory Compliance</b></p>
+
+<p>We may collect, use, retain, or disclose information when reasonably necessary to comply with applicable laws, regulations, legal proceedings, governmental requests, court orders, or other lawful obligations.</p>
+
+<p>We may also retain or disclose information where reasonably necessary to establish, exercise, or defend our legal rights, protect our property, enforce our terms and policies, or protect the safety and security of our customers, employees, service providers, or other persons.</p>
+
+<p><b>22. Business Transfers</b></p>
+
+<p>If Nira's Watches undergoes a business transaction such as a merger, acquisition, restructuring, sale of assets, transfer of business operations, or similar transaction, personal information may be transferred as part of that transaction where legally permitted.</p>
+
+<p>Any successor or acquiring entity may be required to handle personal information in accordance with applicable law and the commitments described in this Privacy Policy, unless otherwise permitted or required by law.</p>
+
+<p><b>23. Data Security Disclaimer</b></p>
+
+<p>Although we take reasonable steps to safeguard information, no website, online service, database, or electronic transmission is completely secure. You acknowledge that information transmitted over the internet may involve inherent security risks.</p>
+
+<p>We encourage users to maintain the security of their devices, email accounts, passwords, and other credentials and to avoid sharing sensitive authentication information with anyone claiming to represent Nira's Watches.</p>
+
+<p><b>24. Communications from Nira's Watches</b></p>
+
+<p>We may contact you through email, telephone, SMS, or other available communication methods regarding your orders, payments, delivery, returns, refunds, warranty, customer support, or other transactions initiated by you.</p>
+
+<p>Nira's Watches will not intentionally ask you to disclose sensitive authentication credentials such as your UPI PIN, card PIN, banking password, or similar confidential credentials through customer support communications.</p>
+
+<p><b>25. Changes to This Privacy Policy</b></p>
+
+<p>We may update or modify this Privacy Policy from time to time to reflect changes in our business practices, website functionality, technology, legal requirements, or applicable regulations.</p>
+
+<p>When we make changes, we may update the "Last Updated" date displayed at the beginning of this Privacy Policy. We encourage you to review this page periodically to remain informed about how we handle information.</p>
+
+<p>Your continued use of <b>www.niras.in</b> after an updated Privacy Policy becomes available may constitute acknowledgment of the updated policy to the extent permitted by applicable law.</p>
+
+<p><b>26. Contact Us Regarding Privacy</b></p>
+
+<p>If you have questions, concerns, requests, or complaints regarding this Privacy Policy or the handling of your personal information, you may contact us using the details below.</p>
+
+<p><b>Brand:</b> Nira's Watches</p>
+
+<p><b>Website:</b> www.niras.in</p>
+
+<p><b>General Contact:</b> contact@niras.in</p>
+
+<p><b>Customer Support:</b> support@niras.in</p>
+
+<p><b>Phone:</b> 0731 2438115</p>
+
+<p><b>Address:</b> 77/C, Industrial Area, Rau, Indore, Madhya Pradesh 453331, India.</p>
+
+<p>We will make reasonable efforts to review and respond to privacy-related inquiries within a reasonable period, subject to the nature of the request and applicable legal requirements.</p>
+
+<p><b>27. Acceptance of This Privacy Policy</b></p>
+
+<p>By accessing, browsing, registering on, or purchasing products through <b>www.niras.in</b>, you acknowledge that you have read and understood this Privacy Policy. If you do not agree with the practices described in this Privacy Policy, please discontinue use of the website.</p>
+
+<p>This Privacy Policy should be read together with our other applicable website policies, including our <b>Terms & Conditions</b> and <b>Returns & Refunds Policy</b>.</p>
+
+
+    </div>
+
+    
+</section>
+
+<!-- ================= CTA / NEWSLETTER ================= -->
+<section class="cta-strip">
+  <div class="wrap">
+    <div>
+      <h3>Be first to know when we drop.</h3>
+      <p>New designs, early access and the occasional discount. No spam, ever.</p>
+    </div>
+    <form class="cta-form" onsubmit="event.preventDefault();">
+      <label for="newsletter-email" class="sr-only" style="position:absolute;left:-9999px;">Email address</label>
+      <input type="email" id="newsletter-email" placeholder="you@email.com" required>
+      <button type="submit">Notify Me</button>
+    </form>
+  </div>
+</section>
+<!-- ================= FOOTER ================= -->
+<footer>
+  <div class="wrap">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a href="index.html" class="logo"> <img src="imgs/logo.png" width="10%" height="auto"></a>
+        <p>Premium blackout watches for the everyday wrist. Designed for India, shipped from India.</p>
+        <div class="footer-social">
+          
+        </div>
+      </div>
+      <div class="footer-col">
+        <h5>Links</h5>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="wr.html">Warranty Registration</a></li>
+          <li><a href="https://www.xpressbees.com/shipment/tracking" target="_blank">Consignment Tracking</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Policies</h5>
+        <ul>
+          <li><a href="pp.html">Privacy Policy</a></li>
+          <li><a href="tnc.html">Terms & Conditions</a></li>
+          <li><a href="rnr.html">Returns & Refunds</a></li>
+        
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Connect</h5>
+        <ul>
+          <li><a href="callto:0731 2438115">0731 2438115 [Landline]</a></li>
+          <li><a href="mailto:contact@niras.in">contact@niras.in</a></li>
+          <li><a href="#">77/C, Industrial Area, Rau, Indore, Madhya Pradesh 453331.</a></li>
+
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Nira's Watches | All rights reserved.</span>
+      <div class="footer-payments">
+
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // FAQ accordion
+  document.querySelectorAll('.faq-item').forEach(function(item){
+    item.querySelector('.faq-q').addEventListener('click', function(){
+      var isOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item').forEach(function(i){ i.classList.remove('open'); });
+      if(!isOpen){ item.classList.add('open'); }
+    });
+  });
+
+  // Mobile menu (simple toggle -> scroll to nav links shown as list)
+  var toggle = document.querySelector('.menu-toggle');
+  var navLinks = document.querySelector('.nav-links');
+  toggle.addEventListener('click', function(){
+    var isShown = navLinks.style.display === 'flex';
+    if(isShown){
+      navLinks.style.display = 'none';
+    } else {
+      navLinks.style.cssText = 'display:flex;position:absolute;top:76px;left:0;right:0;background:#f6f3ec;flex-direction:column;gap:0;padding:8px 20px 20px;border-bottom:1px solid #dcd5c4;';
+      navLinks.querySelectorAll('a').forEach(function(a){ a.style.padding = '14px 0'; a.style.borderBottom = '1px solid #dcd5c4'; });
+    }
+  });
+</script>
+
+</body>
+</html>

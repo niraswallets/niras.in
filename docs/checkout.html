@@ -1,0 +1,1022 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nira's Watches — Timeless, Told in Black</title>
+<meta name="description" content="Nira's Watches — premium blackout watches with Arabic numeral dials. Fast shipping, secure payments, 1 year warranty. Shop the collection.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#0d0d0c;
+    --ink-soft:#1a1a18;
+    --paper:#f6f3ec;
+    --paper-2:#efeadf;
+    --line:#dcd5c4;
+    --brass:#a9812f;
+    --brass-deep:#7c5f24;
+    --white:#ffffff;
+    --grey:#6b675e;
+    --radius-s:2px;
+    --maxw:1240px;
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Inter',sans-serif;
+    -webkit-font-smoothing:antialiased;
+    line-height:1.5;
+  }
+  h1,h2,h3,.font-display{
+    font-family:'Fraunces',serif;
+    font-weight:500;
+    margin:0;
+    letter-spacing:-0.01em;
+  }
+  p{margin:0;}
+  img{max-width:100%;display:block;}
+  a{color:inherit;text-decoration:none;}
+  ul{margin:0;padding:0;list-style:none;}
+  button{font-family:inherit;cursor:pointer;}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 32px;}
+  @media(max-width:640px){.wrap{padding:0 20px;}}
+
+  /* focus visibility */
+  a:focus-visible,button:focus-visible{outline:2px solid var(--brass);outline-offset:3px;}
+  @media (prefers-reduced-motion: reduce){
+    *{animation-duration:0.001ms !important;transition-duration:0.001ms !important;}
+  }
+
+  /* ---------- HEADER ---------- */
+  .site-header{
+    position:sticky;top:0;z-index:50;
+    background:rgba(246,243,236,0.92);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--line);
+  }
+  .site-header .wrap{
+    display:flex;align-items:center;justify-content:space-between;
+    height:76px;
+  }
+  .logo{
+    font-family:'Fraunces',serif;
+    font-size:22px;
+    font-weight:600;
+    letter-spacing:0.01em;
+  }
+  .logo span{color:var(--brass);}
+  .nav-links{display:flex;gap:36px;font-size:15px;}
+  .nav-links a{position:relative;padding:4px 0;}
+  .nav-links a::after{
+    content:"";position:absolute;left:0;bottom:0;width:0;height:1px;background:var(--ink);
+    transition:width .25s ease;
+  }
+  .nav-links a:hover::after{width:100%;}
+  .header-cta{
+    display:flex;align-items:center;gap:20px;
+  }
+  .btn{
+    display:inline-flex;align-items:center;justify-content:center;
+    padding:13px 26px;
+    font-size:14px;font-weight:600;
+    border-radius:var(--radius-s);
+    border:1px solid var(--ink);
+    background:var(--ink);
+    color:var(--paper);
+    transition:background .25s ease, color .25s ease, border-color .25s ease;
+  }
+  .btn:hover{background:var(--ink-soft);}
+  .btn-outline{
+    background:transparent;color:var(--ink);border:1px solid var(--ink);
+  }
+  .btn-outline:hover{background:var(--ink);color:var(--paper);}
+  .btn-brass{
+    background:var(--brass);border-color:var(--brass);color:var(--ink);
+  }
+  .btn-brass:hover{background:var(--brass-deep);border-color:var(--brass-deep);color:var(--white);}
+  .menu-toggle{display:none;background:none;border:none;padding:8px;}
+  .menu-toggle svg{width:24px;height:24px;}
+
+  /* ---------- HERO / BANNER ---------- */
+  .hero{
+    background:var(--ink);
+    color:var(--paper);
+    overflow:hidden;
+  }
+  .hero .wrap{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    align-items:center;
+    gap:40px;
+    padding-top:64px;
+    padding-bottom:0;
+  }
+  .hero-copy{padding-bottom:80px;}
+  .hero-kicker{
+    font-size:14px;color:var(--brass);
+    margin-bottom:22px;
+    display:flex;align-items:center;gap:10px;
+  }
+  .hero-kicker::before{content:"";width:26px;height:1px;background:var(--brass);}
+  .hero h1{
+    font-size:clamp(38px,5vw,64px);
+    line-height:1.04;
+    color:var(--white);
+    max-width:11ch;
+  }
+  .hero p.lede{
+    margin-top:24px;
+    font-size:17px;
+    color:#c9c6bd;
+    max-width:38ch;
+  }
+  .hero-actions{margin-top:38px;display:flex;gap:16px;flex-wrap:wrap;}
+  .hero-price-row{
+    margin-top:44px;
+    display:flex;gap:36px;
+    border-top:1px solid #2a2a27;
+    padding-top:24px;
+    max-width:420px;
+  }
+  .hero-price-row div{flex:1;}
+  .hero-price-row .num{font-family:'Fraunces',serif;font-size:26px;color:var(--white);}
+  .hero-price-row .lbl{font-size:12.5px;color:#9c988d;margin-top:4px;}
+
+  .hero-visual{
+    position:relative;
+    height:100%;
+    display:flex;
+    align-items:flex-end;
+    justify-content:center;
+  }
+  .hero-visual .frame{
+    width:100%;
+    aspect-ratio:4/5;
+    background:linear-gradient(160deg,#1c1c19,#0d0d0c 70%);
+    border:1px solid #262622;
+    border-radius:4px 4px 0 0;
+    display:flex;align-items:center;justify-content:center;
+    color:#726e63;
+    font-size:13px;
+    text-align:center;
+    padding:24px;
+    position:relative;
+  }
+  .hero-visual .frame img{
+    position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border-radius:4px 4px 0 0;
+  }
+
+  /* ---------- TICKER ---------- */
+  .ticker{
+    background:var(--brass);
+    color:var(--ink);
+    overflow:hidden;
+    white-space:nowrap;
+    border-bottom:1px solid var(--brass-deep);
+  }
+  .ticker-track{
+    display:inline-flex;
+    animation:scroll 26s linear infinite;
+  }
+  .ticker-track span{
+    padding:12px 40px;
+    font-size:13px;
+    font-weight:600;
+    letter-spacing:0.02em;
+    display:inline-flex;align-items:center;gap:10px;
+  }
+  .ticker-track span::after{content:"•";opacity:.5;margin-left:40px;}
+  @keyframes scroll{
+    0%{transform:translateX(0);}
+    100%{transform:translateX(-50%);}
+  }
+
+  /* ---------- SECTION HEADS ---------- */
+  .section{padding:96px 0;}
+  @media(max-width:640px){.section{padding:64px 0;}}
+  .section-head{
+    display:flex;justify-content:space-between;align-items:flex-end;
+    gap:24px;margin-bottom:56px;
+    flex-wrap:wrap;
+  }
+  .section-head h2{
+    font-size:clamp(28px,3.4vw,40px);
+    max-width:14ch;
+  }
+  .section-head p{color:var(--grey);max-width:36ch;font-size:15.5px;}
+
+  /* ---------- PRODUCT ---------- */
+  .product-section{background:var(--paper-2);}
+  .product-card{
+    display:grid;
+    grid-template-columns:1.1fr 1fr;
+    gap:0;
+    background:var(--white);
+    border:1px solid var(--line);
+  }
+  .product-gallery{
+    background:#efece3;
+    padding:48px;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:16px;
+  }
+  .product-gallery .g-item{
+    aspect-ratio:1/1;
+    background:linear-gradient(160deg,#e7e2d4,#d9d3c2);
+    border:1px solid var(--line);
+    display:flex;align-items:center;justify-content:center;
+    color:#8b8778;font-size:12.5px;text-align:center;padding:12px;
+    overflow:hidden;position:relative;
+  }
+  .product-gallery .g-item img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;}
+  .product-gallery .g-item.main{grid-column:1/3;aspect-ratio:16/11;}
+
+  .product-info{padding:56px;display:flex;flex-direction:column;}
+  .product-tag{
+    font-size:12.5px;color:var(--brass-deep);font-weight:600;margin-bottom:14px;
+  }
+  .product-info h3{font-size:30px;max-width:16ch;}
+  .stars{display:flex;align-items:center;gap:8px;margin-top:14px;color:var(--brass);font-size:14px;}
+  .stars .count{color:var(--grey);}
+  .price-block{display:flex;align-items:baseline;gap:12px;margin-top:22px;}
+  .price-block .now{font-family:'Fraunces',serif;font-size:30px;}
+  .price-block .was{color:var(--grey);text-decoration:line-through;font-size:16px;}
+  .price-block .off{color:var(--brass-deep);font-size:13.5px;font-weight:600;}
+  .product-desc{margin-top:20px;color:var(--grey);font-size:15px;max-width:46ch;}
+
+  .spec-list{margin-top:28px;border-top:1px solid var(--line);}
+  .spec-list li{
+    display:flex;justify-content:space-between;
+    padding:13px 0;border-bottom:1px solid var(--line);
+    font-size:14.5px;
+  }
+  .spec-list li span:first-child{color:var(--grey);}
+  .spec-list li span:last-child{font-weight:500;}
+
+  .product-actions{margin-top:32px;display:flex;gap:14px;flex-wrap:wrap;}
+  .cod-note{
+    margin-top:18px;font-size:13px;color:var(--grey);
+    display:flex;align-items:center;gap:8px;
+  }
+  .cod-note svg{width:16px;height:16px;flex-shrink:0;color:var(--brass-deep);}
+
+  /* ---------- TRUST STRIP ---------- */
+  .trust-strip{
+    background:var(--ink);color:var(--paper);
+  }
+  .trust-strip .wrap{
+    display:grid;grid-template-columns:repeat(4,1fr);
+  }
+  .trust-item{
+    padding:44px 28px;
+    border-right:1px solid #262622;
+    display:flex;flex-direction:column;gap:14px;
+  }
+  .trust-item:last-child{border-right:none;}
+  .trust-item svg{width:26px;height:26px;color:var(--brass);}
+  .trust-item h4{font-family:'Fraunces',serif;font-weight:500;font-size:18px;color:var(--white);}
+  .trust-item p{font-size:13.5px;color:#a9a599;}
+  @media(max-width:900px){
+    .trust-strip .wrap{grid-template-columns:repeat(2,1fr);}
+    .trust-item:nth-child(2){border-right:none;}
+    .trust-item{border-bottom:1px solid #262622;}
+  }
+  @media(max-width:520px){
+    .trust-strip .wrap{grid-template-columns:1fr;}
+    .trust-item{border-right:none;}
+  }
+
+  /* ---------- WHY / CRAFT BAND ---------- */
+  .craft-band{
+    display:grid;grid-template-columns:0.9fr 1.1fr;gap:60px;align-items:center;
+  }
+  .craft-band .visual{
+    aspect-ratio:1/1;background:linear-gradient(150deg,#e7e2d4,#efeadf);
+    border:1px solid var(--line);
+    display:flex;align-items:center;justify-content:center;color:#8b8778;font-size:13px;text-align:center;
+    position:relative;overflow:hidden;
+  }
+  .craft-band .visual img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;}
+  .craft-list{display:flex;flex-direction:column;gap:0;margin-top:32px;}
+  .craft-list li{
+    padding:22px 0;border-top:1px solid var(--line);
+    display:flex;gap:20px;
+  }
+  .craft-list li:last-child{border-bottom:1px solid var(--line);}
+  .craft-list .mark{font-family:'Fraunces',serif;color:var(--brass-deep);font-size:15px;padding-top:2px;}
+  .craft-list h4{font-size:17px;margin-bottom:6px;}
+  .craft-list p{font-size:14.5px;color:var(--grey);max-width:46ch;}
+
+  /* ---------- TESTIMONIALS ---------- */
+  .testimonial-section{background:var(--ink);color:var(--paper);}
+  .testimonial-section .section-head p{color:#a9a599;}
+  .testimonial-section .section-head h2{color:var(--white);}
+  .t-scroll{
+    display:flex;gap:20px;overflow-x:auto;padding-bottom:12px;
+    scroll-snap-type:x mandatory;
+    margin:0 -32px;padding-left:32px;padding-right:32px;
+  }
+  @media(max-width:640px){.t-scroll{margin:0 -20px;padding-left:20px;padding-right:20px;}}
+  .t-scroll::-webkit-scrollbar{height:6px;}
+  .t-scroll::-webkit-scrollbar-thumb{background:#33332e;border-radius:4px;}
+  .t-card{
+    flex:0 0 340px;
+    scroll-snap-align:start;
+    background:var(--ink-soft);
+    border:1px solid #29291f;
+    padding:32px;
+  }
+  .t-quote{color:var(--brass);font-family:'Fraunces',serif;font-size:34px;line-height:1;margin-bottom:14px;}
+  .t-card p.body{font-size:15px;color:#d4d1c6;line-height:1.65;min-height:110px;}
+  .t-foot{display:flex;align-items:center;gap:12px;margin-top:24px;}
+  .t-avatar{
+    width:40px;height:40px;border-radius:50%;
+    background:#2c2c26;flex-shrink:0;
+    display:flex;align-items:center;justify-content:center;
+    font-family:'Fraunces',serif;color:var(--brass);font-size:15px;
+  }
+  .t-name{font-size:14.5px;font-weight:600;color:var(--white);}
+  .t-loc{font-size:12.5px;color:#8f8b7f;}
+  .t-stars{color:var(--brass);font-size:13px;margin-top:2px;}
+
+  /* ---------- FAQ ---------- */
+  .faq-section .wrap{
+    display:grid;grid-template-columns:0.8fr 1.2fr;gap:60px;
+  }
+  .faq-list{border-top:1px solid var(--line);}
+  .faq-item{border-bottom:1px solid var(--line);}
+  .faq-q{
+    width:100%;background:none;border:none;text-align:left;
+    padding:24px 0;display:flex;justify-content:space-between;align-items:center;
+    gap:20px;font-size:16.5px;font-family:'Fraunces',serif;font-weight:500;color:var(--ink);
+  }
+  .faq-q .icon{
+    flex-shrink:0;width:22px;height:22px;position:relative;
+  }
+  .faq-q .icon::before,.faq-q .icon::after{
+    content:"";position:absolute;background:var(--ink);
+  }
+  .faq-q .icon::before{left:0;top:50%;width:100%;height:1.5px;transform:translateY(-50%);}
+  .faq-q .icon::after{top:0;left:50%;width:1.5px;height:100%;transform:translateX(-50%);transition:transform .25s ease;}
+  .faq-item.open .faq-q .icon::after{transform:translateX(-50%) rotate(90deg);opacity:0;}
+  .faq-a{
+    max-height:0;overflow:hidden;transition:max-height .3s ease;
+  }
+  .faq-item.open .faq-a{max-height:220px;}
+  .faq-a p{padding:0 0 26px;font-size:14.5px;color:var(--grey);max-width:60ch;line-height:1.7;}
+
+  /* ---------- COMING SOON ---------- */
+  .soon-section{background:var(--paper-2);}
+  .soon-grid{
+    display:grid;grid-template-columns:repeat(3,1fr);gap:24px;
+  }
+  @media(max-width:900px){.soon-grid{grid-template-columns:1fr;}}
+  .soon-card{
+    background:var(--white);border:1px solid var(--line);
+    display:flex;flex-direction:column;
+  }
+  .soon-visual{
+    aspect-ratio:4/5;
+    background:linear-gradient(155deg,#e2ddcd,#f0ece1);
+    display:flex;align-items:center;justify-content:center;
+    color:#928d7c;font-size:13px;text-align:center;padding:20px;
+    position:relative;overflow:hidden;
+  }
+  .soon-visual img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;}
+  .soon-badge{
+    position:absolute;top:16px;left:16px;
+    background:var(--ink);color:var(--paper);
+    font-size:11.5px;font-weight:600;padding:7px 12px;border-radius:2px;
+    letter-spacing:0.02em;
+  }
+  .soon-body{padding:24px 26px 28px;}
+  .soon-body h4{font-size:19px;margin-bottom:8px;}
+  .soon-body p{font-size:14px;color:var(--grey);}
+  .soon-month{
+    margin-top:16px;font-size:13px;color:var(--brass-deep);font-weight:600;
+    display:flex;align-items:center;gap:8px;
+  }
+  .soon-month::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--brass);}
+
+  /* ---------- NEWSLETTER / CTA STRIP ---------- */
+  .cta-strip{background:var(--ink);color:var(--paper);}
+  .cta-strip .wrap{
+    display:flex;justify-content:space-between;align-items:center;gap:32px;
+    padding:64px 32px;flex-wrap:wrap;
+  }
+  .cta-strip h3{color:var(--white);font-size:28px;max-width:16ch;}
+  .cta-strip p{color:#a9a599;margin-top:10px;font-size:15px;max-width:40ch;}
+  .cta-form{display:flex;gap:0;max-width:380px;width:100%;}
+  .cta-form input{
+    flex:1;padding:15px 18px;border:1px solid #35352d;background:#161613;
+    color:var(--paper);font-size:14.5px;border-right:none;
+  }
+  .cta-form input::placeholder{color:#8f8b7f;}
+  .cta-form button{
+    padding:15px 22px;background:var(--brass);color:var(--ink);border:1px solid var(--brass);
+    font-weight:600;font-size:14px;white-space:nowrap;
+  }
+  .cta-form button:hover{background:var(--brass-deep);color:var(--white);}
+
+  /* ---------- FOOTER ---------- */
+  footer{background:#0a0a09;color:#a9a599;}
+  .footer-top{
+    display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:40px;
+    padding:72px 0 56px;
+  }
+  @media(max-width:900px){.footer-top{grid-template-columns:1fr 1fr;row-gap:44px;}}
+  @media(max-width:520px){.footer-top{grid-template-columns:1fr;}}
+  .footer-brand .logo{color:var(--white);}
+  .footer-brand p{margin-top:18px;font-size:14px;color:#7c7869;max-width:32ch;line-height:1.7;}
+  .footer-social{display:flex;gap:14px;margin-top:24px;}
+  .footer-social a{
+    width:36px;height:36px;border:1px solid #262622;border-radius:50%;
+    display:flex;align-items:center;justify-content:center;transition:border-color .2s ease,color .2s ease;
+  }
+  .footer-social a:hover{border-color:var(--brass);color:var(--brass);}
+  .footer-social svg{width:16px;height:16px;}
+  .footer-col h5{color:var(--white);font-size:14.5px;font-weight:600;margin-bottom:20px;font-family:'Inter',sans-serif;}
+  .footer-col ul{display:flex;flex-direction:column;gap:13px;}
+  .footer-col a{font-size:14px;color:#a9a599;transition:color .2s ease;}
+  .footer-col a:hover{color:var(--brass);}
+  .footer-bottom{
+    border-top:1px solid #1c1c19;
+    padding:26px 0;
+    display:flex;justify-content:space-between;align-items:center;
+    flex-wrap:wrap;gap:14px;
+    font-size:13px;color:#726e60;
+  }
+  .footer-payments{display:flex;gap:10px;align-items:center;}
+  .footer-payments span{
+    border:1px solid #262622;padding:6px 10px;border-radius:2px;font-size:11.5px;color:#8f8b7f;
+  }
+
+  /* ---------- RESPONSIVE ---------- */
+  @media(max-width:960px){
+    .hero .wrap{grid-template-columns:1fr;padding-top:40px;}
+    .hero-visual{order:-1;}
+    .hero-visual .frame{aspect-ratio:16/10;}
+    .hero-copy{padding-bottom:48px;}
+    .product-card{grid-template-columns:1fr;}
+    .product-gallery{padding:32px;}
+    .product-info{padding:36px 32px 44px;}
+    .craft-band{grid-template-columns:1fr;gap:36px;}
+    .faq-section .wrap{grid-template-columns:1fr;gap:20px;}
+  }
+  @media(max-width:760px){
+    .nav-links{display:none;}
+    .menu-toggle{display:flex;}
+    .header-cta .btn-outline{display:none;}
+  }
+  @media(max-width:640px){
+    .hero-actions .btn{flex:1;}
+    .hero-price-row{gap:20px;}
+    .cta-strip .wrap{padding:48px 20px;}
+  }
+</style>
+</head>
+<body>
+
+<!-- ================= HEADER ================= -->
+<header class="site-header">
+  <div class="wrap">
+    <a href="index.html" class="logo"> <img src="imgs/logo.png" width="10%" height="auto"></a>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="#product">Shop</a>
+      <a href="#trust">Why Nira's</a>
+      <a href="#testimonials">Reviews</a>
+      <a href="#faqs">FAQs</a>
+      <a href="#coming-soon">Coming Soon</a>
+    </nav>
+    <div class="header-cta">
+      <a href="#product" class="btn btn-outline">Shop Now</a>
+      <button class="menu-toggle" aria-label="Open menu">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+
+
+<!-- ============================================================
+     NIRA'S WATCHES — CHECKOUT SECTION
+     Drop this whole block (style + markup + script) into your page.
+     Uses the same design tokens as the homepage (Fraunces + Inter,
+     ink/paper/brass palette). If those variables are already defined
+     globally on your site, the ones below are just a safe fallback.
+============================================================= -->
+<style>
+  .checkout-section{
+    --ink:#0d0d0c; --ink-soft:#1a1a18; --paper:#f6f3ec; --paper-2:#efeadf;
+    --line:#dcd5c4; --brass:#a9812f; --brass-deep:#7c5f24; --white:#ffffff; --grey:#6b675e;
+    font-family:'Inter',sans-serif; background:var(--paper); color:var(--ink); padding:80px 0;
+  }
+  .checkout-section *{box-sizing:border-box;}
+  .checkout-section h3,.checkout-section h4{font-family:'Fraunces',serif;font-weight:500;margin:0;}
+  .checkout-section .wrap{max-width:1160px;margin:0 auto;padding:0 32px;}
+  @media(max-width:640px){.checkout-section .wrap{padding:0 18px;}}
+
+  .checkout-grid{display:grid;grid-template-columns:1.5fr 1fr;gap:32px;align-items:start;}
+  @media(max-width:900px){.checkout-grid{grid-template-columns:1fr;}}
+
+  .co-block{background:var(--white);border:1px solid var(--line);padding:32px;margin-bottom:24px;}
+  .co-block h3{font-size:20px;margin-bottom:22px;}
+
+  /* product row */
+  .co-product{display:flex;gap:18px;align-items:center;}
+  .co-product-img{
+    width:88px;height:88px;flex-shrink:0;background:var(--paper-2);border:1px solid var(--line);
+    display:flex;align-items:center;justify-content:center;overflow:hidden;position:relative;
+    color:#8b8778;font-size:10px;text-align:center;
+  }
+  .co-product-img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;}
+  .co-product-info{flex:1;min-width:0;}
+  .co-product-info h4{font-size:16px;}
+  .co-product-info p{font-size:13px;color:var(--grey);margin-top:4px;}
+  .co-qty{display:flex;align-items:center;gap:0;margin-top:12px;border:1px solid var(--line);width:fit-content;}
+  .co-qty button{
+    width:30px;height:30px;background:var(--paper-2);border:none;font-size:16px;color:var(--ink);cursor:pointer;
+  }
+  .co-qty button:hover{background:var(--line);}
+  .co-qty span{width:34px;text-align:center;font-size:14px;font-weight:600;}
+  .co-product-price{font-family:'Fraunces',serif;font-size:18px;white-space:nowrap;}
+
+  /* form */
+  .co-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+  @media(max-width:520px){.co-row{grid-template-columns:1fr;}}
+  .co-field{margin-bottom:18px;}
+  .co-field.full{margin-bottom:18px;}
+  .co-field label{display:block;font-size:12.5px;color:var(--grey);margin-bottom:7px;font-weight:500;}
+  .co-field input,.co-field textarea{
+    width:100%;padding:12px 14px;border:1px solid var(--line);background:var(--paper);
+    font-family:'Inter',sans-serif;font-size:14.5px;color:var(--ink);
+  }
+  .co-field input:focus,.co-field textarea:focus{outline:none;border-color:var(--brass);}
+  .co-field textarea{resize:vertical;min-height:70px;}
+  .co-hint{font-size:12px;color:var(--grey);margin-top:6px;}
+  .co-hint.loading{color:var(--brass-deep);}
+
+  /* coupons */
+  .coupon-list{list-style:none;margin:0;padding:0;}
+  .coupon-item{
+    border:1px solid var(--line);padding:16px 18px;margin-bottom:12px;
+    display:flex;align-items:flex-start;gap:14px;cursor:pointer;transition:border-color .2s ease;
+  }
+  .coupon-item:hover{border-color:var(--brass);}
+  .coupon-item.active{border-color:var(--brass);background:#fbf8f0;}
+  .coupon-item input{margin-top:3px;accent-color:var(--brass-deep);flex-shrink:0;}
+  .coupon-body{flex:1;}
+  .coupon-code{font-family:'Fraunces',serif;font-size:15px;font-weight:600;color:var(--brass-deep);}
+  .coupon-desc{font-size:13px;color:var(--grey);margin-top:4px;}
+  .coupon-tag{
+    display:inline-block;margin-top:6px;font-size:11px;font-weight:600;text-transform:uppercase;
+    letter-spacing:0.03em;color:var(--brass-deep);background:#f0e6d2;padding:3px 8px;border-radius:2px;
+  }
+  .coupon-remove{font-size:12.5px;color:var(--grey);text-decoration:underline;cursor:pointer;margin-top:10px;display:inline-block;}
+
+  /* summary card */
+  .co-summary-card{
+    background:var(--ink);color:var(--paper);padding:32px;position:sticky;top:20px;
+  }
+  .co-summary-card h3{color:var(--white);font-size:19px;margin-bottom:20px;}
+  .price-breakup{list-style:none;margin:0;padding:0;}
+  .price-breakup li{display:flex;justify-content:space-between;font-size:14px;padding:10px 0;border-bottom:1px solid #2a2a27;color:#c9c6bd;}
+  .discount-row span:last-child{color:var(--brass);}
+  .grand-total{
+    display:flex;justify-content:space-between;align-items:baseline;margin-top:16px;padding-top:16px;
+    border-top:1px solid #35352d;font-family:'Fraunces',serif;
+  }
+  .grand-total span:first-child{font-size:14px;color:#c9c6bd;font-family:'Inter',sans-serif;}
+  .grand-total span:last-child{font-size:26px;color:var(--white);}
+
+  .payment-note{
+    margin-top:16px;font-size:12.5px;color:#e0c98a;background:#241e10;border:1px solid #3d3218;
+    padding:12px 14px;line-height:1.5;
+  }
+
+  .checkout-actions{margin-top:24px;display:flex;flex-direction:column;gap:12px;}
+  .checkout-actions .btn{
+    display:flex;align-items:center;justify-content:center;padding:15px 20px;font-size:14.5px;font-weight:600;
+    border-radius:2px;cursor:pointer;transition:opacity .2s ease;
+  }
+  .btn-brass{background:var(--brass);color:var(--ink);border:1px solid var(--brass);}
+  .btn-brass:hover{background:var(--brass-deep);color:var(--white);}
+  .btn-outline{background:transparent;color:var(--paper);border:1px solid #4a4a43;}
+  .btn-outline:hover{border-color:var(--paper);}
+  .checkout-actions .btn:disabled{opacity:0.4;cursor:not-allowed;}
+  .co-secure-note{margin-top:16px;font-size:12px;color:#8f8b7f;text-align:center;}
+</style>
+<div id="loader"><div class="spinner"></div></div>
+
+<style>
+#loader{position:fixed;inset:0;background:#fff;display:flex;align-items:center;justify-content:center;z-index:99999}
+.spinner{width:35px;height:35px;border:4px solid #ddd;border-top-color:#111;border-radius:50%;animation:spin .7s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+</style>
+
+<script>
+setTimeout(()=>document.getElementById("loader").style.display="none",2000);
+</script> 
+
+<section class="checkout-section" id="checkout">
+  <div class="wrap checkout-grid">
+
+    <!-- LEFT: product, form, coupons -->
+    <div class="checkout-main">
+
+      <div class="co-block">
+        <h3>Order Summary</h3>
+        <div class="co-product">
+          <div class="co-product-img">
+            <img src="imgs/sqrbanner.png" alt="The Octagon — Full Black" onerror="this.style.display='none'">
+            IMG
+          </div>
+          <div class="co-product-info">
+            <h4>The Octagon — Full Black</h4>
+            <p>Octagonal dial · Stainless steel · Black</p>
+            <div class="co-qty" style="display: none;">
+              <button type="button" data-action="dec" aria-label="Decrease quantity">–</button>
+              <span id="qtyVal">1</span>
+              <button type="button" data-action="inc" aria-label="Increase quantity">+</button>
+            </div>
+          </div>
+          <div class="co-product-price" id="productLineTotal">₹250</div>
+        </div>
+      </div>
+
+      <div class="co-block">
+        <h3>Delivery Details</h3>
+        <form id="checkoutForm" onsubmit="return false;">
+          <div class="co-row">
+            <div class="co-field">
+              <label for="fullName">Full Name</label>
+              <input type="text" id="fullName" required>
+            </div>
+            <div class="co-field">
+              <label for="email">Email</label>
+              <input type="email" id="email" required>
+            </div>
+          </div>
+          <div class="co-row">
+            <div class="co-field">
+              <label for="contact">Contact Number</label>
+              <input type="tel" id="contact" maxlength="10" required>
+            </div>
+            <div class="co-field">
+              <label for="pincode">Pincode</label>
+              <input type="text" id="pincode" maxlength="6" inputmode="numeric" required>
+              <div class="co-hint" id="pincodeHint"></div>
+            </div>
+          </div>
+          <div class="co-field full">
+            <label for="address">Full Address</label>
+            <textarea id="address" required placeholder="House no., street, landmark"></textarea>
+          </div>
+          <div class="co-row">
+            <div class="co-field">
+              <label for="city">City</label>
+              <input type="text" id="city" required>
+            </div>
+            <div class="co-field">
+              <label for="state">State</label>
+              <input type="text" id="state" required>
+            </div>
+          </div>
+        </form>
+      </div>
+
+      <div class="co-block">
+        <h3>Apply Coupon</h3>
+        <ul class="coupon-list" id="couponList">
+          <li class="coupon-item" data-code="PAY50" data-type="flat" data-value="50" data-online-only="true">
+            <input type="radio" name="coupon" id="cp1">
+            <label for="cp1" class="coupon-body" style="cursor:pointer;">
+              <div class="coupon-code">UPI50 — Flat ₹50 Off</div>
+              <div class="coupon-desc">On UPI payments only. Pay online to apply.</div>
+
+            </label>
+          </li>
+          <li class="coupon-item" data-code="FLAT30" data-type="flat" data-value="0" style="pointer-events: none; opacity: 0.5;">
+            <input type="radio" name="coupon" id="cp2">
+            <label for="cp2" class="coupon-body" style="cursor:pointer;">
+              <div class="coupon-code">NIRA300 — Upto ₹300 Off</div>
+              <div class="coupon-desc">Valid on orders above ₹1200.</div>
+              <span class="coupon-tag">Not Applicable</span>
+            </label>
+          </li>
+          <li class="coupon-item" data-code="WELCOME10" data-type="percent" data-value="0" data-cap="40" style="pointer-events: none; opacity: 0.5;">
+            <input type="radio" name="coupon" id="cp3">
+            <label for="cp3" class="coupon-body" style="cursor:pointer;">
+              <div class="coupon-code">IDFCMAYURA — 10% Off</div>
+              <div class="coupon-desc">Upto 10% Off using IDFC Mayura Credit Card. Minimum ₹1300 order value.</div>
+              <span class="coupon-tag">Not Applicable</span>
+            </label>
+          </li>
+          <li class="coupon-item" data-code="FIRST20" data-type="flat" data-value="0" style="pointer-events: none; opacity: 0.5;">
+            <input type="radio" name="coupon" id="cp4">
+            <label for="cp4" class="coupon-body" style="cursor:pointer;">
+              <div class="coupon-code">FIRST120 — Flat ₹120 Off</div>
+              <div class="coupon-desc">On your first order. Minimum order value ₹550.</div>
+              <span class="coupon-tag">Not Applicable</span>
+            </label>
+          </li>
+          <li class="coupon-item" data-code="SAVE15" data-type="flat" data-value="0" style="pointer-events: none; opacity: 0.5;">
+            <input type="radio" name="coupon" id="cp5">
+            <label for="cp5" class="coupon-body" style="cursor:pointer;">
+              <div class="coupon-code">SAVE5 — 5% Off</div>
+              <div class="coupon-desc">Valid on all orders above ₹900.</div>
+                  <span class="coupon-tag">Not Applicable</span>
+            </label>
+          </li>
+        </ul>
+        <span class="coupon-remove" id="removeCoupon" style="display:none;">Remove applied coupon</span>
+      </div>
+
+    </div>
+
+    <!-- RIGHT: price summary + actions -->
+    <aside class="checkout-side">
+      <div class="co-summary-card">
+        <h3>Price Details</h3>
+        <ul class="price-breakup">
+          <li><span>Item Total</span><span id="itemTotal">₹250</span></li>
+          <li><span>Delivery</span><span>Free</span></li>
+          <li class="discount-row" id="discountRow" style="display:none;"><span>Coupon Discount</span><span id="discountVal">-₹0</span></li>
+        </ul>
+        <div class="grand-total">
+          <span>Total Payable</span>
+          <span id="grandTotal">₹250</span>
+        </div>
+
+        <div class="payment-note" id="codBlockedNote" style="display:none;">
+          UPI50 is valid only with online payment. Remove the coupon to pay via Cash on Delivery.
+        </div>
+
+        <div class="checkout-actions">
+          <button type="button" class="btn btn-brass" id="payNowBtn">Pay Now — Online Payment</button>
+          <button type="button" class="btn btn-outline" id="placeOrderBtn">Place Order — Cash on Delivery</button>
+        </div>
+        <div class="co-secure-note">🔒 Secure checkout · Your details are 256-bit encrypted.</div>
+      </div>
+    </aside>
+
+  </div>
+</section>
+
+<script>
+(function(){
+  var BASE_PRICE = 250;
+  var qty = 1;
+  var appliedCoupon = null; // {code, type, value, cap, onlineOnly}
+
+  var qtyVal = document.getElementById('qtyVal');
+  var productLineTotal = document.getElementById('productLineTotal');
+  var itemTotal = document.getElementById('itemTotal');
+  var discountRow = document.getElementById('discountRow');
+  var discountVal = document.getElementById('discountVal');
+  var grandTotal = document.getElementById('grandTotal');
+  var codBlockedNote = document.getElementById('codBlockedNote');
+  var placeOrderBtn = document.getElementById('placeOrderBtn');
+  var payNowBtn = document.getElementById('payNowBtn');
+  var removeCouponLink = document.getElementById('removeCoupon');
+
+  function currentItemTotal(){ return BASE_PRICE * qty; }
+
+  function computeDiscount(){
+    if(!appliedCoupon) return 0;
+    var total = currentItemTotal();
+    if(appliedCoupon.type === 'flat'){
+      return Math.min(appliedCoupon.value, total);
+    } else if(appliedCoupon.type === 'percent'){
+      var raw = Math.round(total * appliedCoupon.value / 100);
+      if(appliedCoupon.cap){ raw = Math.min(raw, appliedCoupon.cap); }
+      return Math.min(raw, total);
+    }
+    return 0;
+  }
+
+  function render(){
+    var total = currentItemTotal();
+    qtyVal.textContent = qty;
+    productLineTotal.textContent = '₹' + total;
+    itemTotal.textContent = '₹' + total;
+
+    var discount = computeDiscount();
+    if(appliedCoupon && discount > 0){
+      discountRow.style.display = 'flex';
+      discountVal.textContent = '-₹' + discount;
+    } else {
+      discountRow.style.display = 'none';
+    }
+
+    var payable = Math.max(total - discount, 0);
+    grandTotal.textContent = '₹' + payable;
+
+    var onlineOnlyActive = !!(appliedCoupon && appliedCoupon.onlineOnly);
+    codBlockedNote.style.display = onlineOnlyActive ? 'block' : 'none';
+    placeOrderBtn.disabled = onlineOnlyActive;
+
+    removeCouponLink.style.display = appliedCoupon ? 'inline-block' : 'none';
+
+    document.querySelectorAll('.coupon-item').forEach(function(item){
+      var code = item.getAttribute('data-code');
+      item.classList.toggle('active', !!(appliedCoupon && appliedCoupon.code === code));
+    });
+  }
+
+  // Quantity controls
+  document.querySelector('.co-qty').addEventListener('click', function(e){
+    var btn = e.target.closest('button');
+    if(!btn) return;
+    var action = btn.getAttribute('data-action');
+    if(action === 'inc'){ qty += 1; }
+    if(action === 'dec'){ qty = Math.max(1, qty - 1); }
+    render();
+  });
+
+  // Coupon selection
+  document.querySelectorAll('.coupon-item').forEach(function(item){
+    item.addEventListener('click', function(e){
+      var radio = item.querySelector('input[type="radio"]');
+      radio.checked = true;
+      appliedCoupon = {
+        code: item.getAttribute('data-code'),
+        type: item.getAttribute('data-type'),
+        value: parseFloat(item.getAttribute('data-value')),
+        cap: item.getAttribute('data-cap') ? parseFloat(item.getAttribute('data-cap')) : null,
+        onlineOnly: item.getAttribute('data-online-only') === 'true'
+      };
+      render();
+    });
+  });
+
+  removeCouponLink.addEventListener('click', function(){
+    appliedCoupon = null;
+    document.querySelectorAll('.coupon-item input[type="radio"]').forEach(function(r){ r.checked = false; });
+    render();
+  });
+
+  // Pincode -> auto city/state (editable)
+  var pincodeInput = document.getElementById('pincode');
+  var cityInput = document.getElementById('city');
+  var stateInput = document.getElementById('state');
+  var pincodeHint = document.getElementById('pincodeHint');
+
+  pincodeInput.addEventListener('input', function(){
+    this.value = this.value.replace(/\D/g,'').slice(0,6);
+    if(this.value.length === 6){
+      pincodeHint.textContent = 'Looking up location…';
+      pincodeHint.className = 'co-hint loading';
+      fetch('https://api.postalpincode.in/pincode/' + this.value)
+        .then(function(res){ return res.json(); })
+        .then(function(data){
+          if(data && data[0] && data[0].Status === 'Success' && data[0].PostOffice && data[0].PostOffice.length){
+            var po = data[0].PostOffice[0];
+            cityInput.value = po.District || '';
+            stateInput.value = po.State || '';
+            pincodeHint.textContent = 'Location found — edit if needed';
+          } else {
+            pincodeHint.textContent = 'Pincode not found — enter city/state manually';
+          }
+          pincodeHint.className = 'co-hint';
+        })
+        .catch(function(){
+          pincodeHint.textContent = 'Could not fetch location — enter city/state manually';
+          pincodeHint.className = 'co-hint';
+        });
+    } else {
+      pincodeHint.textContent = '';
+    }
+  });
+
+  function formValid(){
+    var form = document.getElementById('checkoutForm');
+    if(!form.checkValidity()){
+      form.reportValidity();
+      return false;
+    }
+    return true;
+  }
+
+  // Pay Now -> online payment gateway (or iiii.com if no coupon applied)
+  payNowBtn.addEventListener('click', function(){
+    if(!formValid()) return;
+    if(!appliedCoupon){
+      window.location.href = 'https://nirapay.kesug.com/niraswallets250/pay.php';
+    } else {
+      window.location.href = 'https://nirapay.kesug.com/niraswallets200/pay.php';
+    }
+  });
+
+  // Place Order (COD) -> blocked if PAY50 coupon active
+  placeOrderBtn.addEventListener('click', function(){
+    if(appliedCoupon && appliedCoupon.onlineOnly){
+      codBlockedNote.style.display = 'block';
+      codBlockedNote.scrollIntoView({behavior:'smooth', block:'center'});
+      return;
+    }
+    if(!formValid()) return;
+    window.location.href = 'https://www.niras.in/codsuccess.html';
+  });
+
+  render();
+})();
+</script>
+
+
+<!-- ================= CTA / NEWSLETTER ================= -->
+<section class="cta-strip">
+  <div class="wrap">
+    <div>
+      <h3>Be first to know when we drop.</h3>
+      <p>New designs, early access and the occasional discount. No spam, ever.</p>
+    </div>
+    <form class="cta-form" onsubmit="event.preventDefault();">
+      <label for="newsletter-email" class="sr-only" style="position:absolute;left:-9999px;">Email address</label>
+      <input type="email" id="newsletter-email" placeholder="you@email.com" required>
+      <button type="submit">Notify Me</button>
+    </form>
+  </div>
+</section>
+
+<!-- ================= FOOTER ================= -->
+<footer>
+  <div class="wrap">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a href="index.html" class="logo"> <img src="imgs/logo.png" width="10%" height="auto"></a>
+        <p>Premium blackout watches for the everyday wrist. Designed for India, shipped from India.</p>
+        <div class="footer-social">
+          
+        </div>
+      </div>
+      <div class="footer-col">
+        <h5>Links</h5>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="wr.html">Warranty Registration</a></li>
+          <li><a href="https://www.xpressbees.com/shipment/tracking" target="_blank">Consignment Tracking</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Policies</h5>
+        <ul>
+          <li><a href="pp.html">Privacy Policy</a></li>
+          <li><a href="tnc.html">Terms & Conditions</a></li>
+          <li><a href="rnr.html">Returns & Refunds</a></li>
+        
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Connect</h5>
+        <ul>
+          <li><a href="callto:0731 2438115">0731 2438115 [Landline]</a></li>
+          <li><a href="mailto:contact@niras.in">contact@niras.in</a></li>
+          <li><a href="#">77/C, Industrial Area, Rau, Indore, Madhya Pradesh 453331.</a></li>
+
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Nira's Watches | All rights reserved.</span>
+      <div class="footer-payments">
+
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // FAQ accordion
+  document.querySelectorAll('.faq-item').forEach(function(item){
+    item.querySelector('.faq-q').addEventListener('click', function(){
+      var isOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item').forEach(function(i){ i.classList.remove('open'); });
+      if(!isOpen){ item.classList.add('open'); }
+    });
+  });
+
+  // Mobile menu (simple toggle -> scroll to nav links shown as list)
+  var toggle = document.querySelector('.menu-toggle');
+  var navLinks = document.querySelector('.nav-links');
+  toggle.addEventListener('click', function(){
+    var isShown = navLinks.style.display === 'flex';
+    if(isShown){
+      navLinks.style.display = 'none';
+    } else {
+      navLinks.style.cssText = 'display:flex;position:absolute;top:76px;left:0;right:0;background:#f6f3ec;flex-direction:column;gap:0;padding:8px 20px 20px;border-bottom:1px solid #dcd5c4;';
+      navLinks.querySelectorAll('a').forEach(function(a){ a.style.padding = '14px 0'; a.style.borderBottom = '1px solid #dcd5c4'; });
+    }
+  });
+</script>
+
+</body>
+</html>

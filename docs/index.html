@@ -1,0 +1,935 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nira's Watches — Timeless, Told in Black</title>
+<meta name="description" content="Nira's Watches — premium blackout watches with Arabic numeral dials. Fast shipping, secure payments, 1 year warranty. Shop the collection.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#0d0d0c;
+    --ink-soft:#1a1a18;
+    --paper:#f6f3ec;
+    --paper-2:#efeadf;
+    --line:#dcd5c4;
+    --brass:#a9812f;
+    --brass-deep:#7c5f24;
+    --white:#ffffff;
+    --grey:#6b675e;
+    --radius-s:2px;
+    --maxw:1240px;
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Inter',sans-serif;
+    -webkit-font-smoothing:antialiased;
+    line-height:1.5;
+  }
+  h1,h2,h3,.font-display{
+    font-family:'Fraunces',serif;
+    font-weight:500;
+    margin:0;
+    letter-spacing:-0.01em;
+  }
+  p{margin:0;}
+  img{max-width:100%;display:block;}
+  a{color:inherit;text-decoration:none;}
+  ul{margin:0;padding:0;list-style:none;}
+  button{font-family:inherit;cursor:pointer;}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 32px;}
+  @media(max-width:640px){.wrap{padding:0 20px;}}
+
+  /* focus visibility */
+  a:focus-visible,button:focus-visible{outline:2px solid var(--brass);outline-offset:3px;}
+  @media (prefers-reduced-motion: reduce){
+    *{animation-duration:0.001ms !important;transition-duration:0.001ms !important;}
+  }
+
+  /* ---------- HEADER ---------- */
+  .site-header{
+    position:sticky;top:0;z-index:50;
+    background:rgba(246,243,236,0.92);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--line);
+  }
+  .site-header .wrap{
+    display:flex;align-items:center;justify-content:space-between;
+    height:76px;
+  }
+  .logo{
+    font-family:'Fraunces',serif;
+    font-size:22px;
+    font-weight:600;
+    letter-spacing:0.01em;
+  }
+  .logo span{color:var(--brass);}
+  .nav-links{display:flex;gap:36px;font-size:15px;}
+  .nav-links a{position:relative;padding:4px 0;}
+  .nav-links a::after{
+    content:"";position:absolute;left:0;bottom:0;width:0;height:1px;background:var(--ink);
+    transition:width .25s ease;
+  }
+  .nav-links a:hover::after{width:100%;}
+  .header-cta{
+    display:flex;align-items:center;gap:20px;
+  }
+  .btn{
+    display:inline-flex;align-items:center;justify-content:center;
+    padding:13px 26px;
+    font-size:14px;font-weight:600;
+    border-radius:var(--radius-s);
+    border:1px solid var(--ink);
+    background:var(--ink);
+    color:var(--paper);
+    transition:background .25s ease, color .25s ease, border-color .25s ease;
+  }
+  .btn:hover{background:var(--ink-soft);}
+  .btn-outline{
+    background:transparent;color:var(--ink);border:1px solid var(--ink);
+  }
+  .btn-outline:hover{background:var(--ink);color:var(--paper);}
+  .btn-brass{
+    background:var(--brass);border-color:var(--brass);color:var(--ink);
+  }
+  .btn-brass:hover{background:var(--brass-deep);border-color:var(--brass-deep);color:var(--white);}
+  .menu-toggle{display:none;background:none;border:none;padding:8px;}
+  .menu-toggle svg{width:24px;height:24px;}
+
+  /* ---------- HERO / BANNER ---------- */
+  .hero{
+    background:var(--ink);
+    color:var(--paper);
+    overflow:hidden;
+  }
+  .hero .wrap{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    align-items:center;
+    gap:40px;
+    padding-top:64px;
+    padding-bottom:0;
+  }
+  .hero-copy{padding-bottom:80px;}
+  .hero-kicker{
+    font-size:14px;color:var(--brass);
+    margin-bottom:22px;
+    display:flex;align-items:center;gap:10px;
+  }
+  .hero-kicker::before{content:"";width:26px;height:1px;background:var(--brass);}
+  .hero h1{
+    font-size:clamp(38px,5vw,64px);
+    line-height:1.04;
+    color:var(--white);
+    max-width:11ch;
+  }
+  .hero p.lede{
+    margin-top:24px;
+    font-size:17px;
+    color:#c9c6bd;
+    max-width:38ch;
+  }
+  .hero-actions{margin-top:38px;display:flex;gap:16px;flex-wrap:wrap;}
+  .hero-price-row{
+    margin-top:44px;
+    display:flex;gap:36px;
+    border-top:1px solid #2a2a27;
+    padding-top:24px;
+    max-width:420px;
+  }
+  .hero-price-row div{flex:1;}
+  .hero-price-row .num{font-family:'Fraunces',serif;font-size:26px;color:var(--white);}
+  .hero-price-row .lbl{font-size:12.5px;color:#9c988d;margin-top:4px;}
+
+  .hero-visual{
+    position:relative;
+    height:100%;
+    display:flex;
+    align-items:flex-end;
+    justify-content:center;
+  }
+  .hero-visual .frame{
+    width:100%;
+    aspect-ratio:4/5;
+    background:linear-gradient(160deg,#1c1c19,#0d0d0c 70%);
+    border:1px solid #262622;
+    border-radius:4px 4px 0 0;
+    display:flex;align-items:center;justify-content:center;
+    color:#726e63;
+    font-size:13px;
+    text-align:center;
+    padding:24px;
+    position:relative;
+  }
+  .hero-visual .frame img{
+    position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border-radius:4px 4px 0 0;
+  }
+
+  /* ---------- TICKER ---------- */
+  .ticker{
+    background:var(--brass);
+    color:var(--ink);
+    overflow:hidden;
+    white-space:nowrap;
+    border-bottom:1px solid var(--brass-deep);
+  }
+  .ticker-track{
+    display:inline-flex;
+    animation:scroll 26s linear infinite;
+  }
+  .ticker-track span{
+    padding:12px 40px;
+    font-size:13px;
+    font-weight:600;
+    letter-spacing:0.02em;
+    display:inline-flex;align-items:center;gap:10px;
+  }
+  .ticker-track span::after{content:"•";opacity:.5;margin-left:40px;}
+  @keyframes scroll{
+    0%{transform:translateX(0);}
+    100%{transform:translateX(-50%);}
+  }
+
+  /* ---------- SECTION HEADS ---------- */
+  .section{padding:96px 0;}
+  @media(max-width:640px){.section{padding:64px 0;}}
+  .section-head{
+    display:flex;justify-content:space-between;align-items:flex-end;
+    gap:24px;margin-bottom:56px;
+    flex-wrap:wrap;
+  }
+  .section-head h2{
+    font-size:clamp(28px,3.4vw,40px);
+    max-width:14ch;
+  }
+  .section-head p{color:var(--grey);max-width:36ch;font-size:15.5px;}
+
+  /* ---------- PRODUCT ---------- */
+  .product-section{background:var(--paper-2);}
+  .product-card{
+    display:grid;
+    grid-template-columns:1.1fr 1fr;
+    gap:0;
+    background:var(--white);
+    border:1px solid var(--line);
+  }
+  .product-gallery{
+    background:#efece3;
+    padding:48px;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:16px;
+  }
+  .product-gallery .g-item{
+    aspect-ratio:1/1;
+    background:linear-gradient(160deg,#e7e2d4,#d9d3c2);
+    border:1px solid var(--line);
+    display:flex;align-items:center;justify-content:center;
+    color:#8b8778;font-size:12.5px;text-align:center;padding:12px;
+    overflow:hidden;position:relative;
+  }
+  .product-gallery .g-item img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;}
+  .product-gallery .g-item.main{grid-column:1/3;aspect-ratio:16/11;}
+
+  .product-info{padding:56px;display:flex;flex-direction:column;}
+  .product-tag{
+    font-size:12.5px;color:var(--brass-deep);font-weight:600;margin-bottom:14px;
+  }
+  .product-info h3{font-size:30px;max-width:16ch;}
+  .stars{display:flex;align-items:center;gap:8px;margin-top:14px;color:var(--brass);font-size:14px;}
+  .stars .count{color:var(--grey);}
+  .price-block{display:flex;align-items:baseline;gap:12px;margin-top:22px;}
+  .price-block .now{font-family:'Fraunces',serif;font-size:30px;}
+  .price-block .was{color:var(--grey);text-decoration:line-through;font-size:16px;}
+  .price-block .off{color:var(--brass-deep);font-size:13.5px;font-weight:600;}
+  .product-desc{margin-top:20px;color:var(--grey);font-size:15px;max-width:46ch;}
+
+  .spec-list{margin-top:28px;border-top:1px solid var(--line);}
+  .spec-list li{
+    display:flex;justify-content:space-between;
+    padding:13px 0;border-bottom:1px solid var(--line);
+    font-size:14.5px;
+  }
+  .spec-list li span:first-child{color:var(--grey);}
+  .spec-list li span:last-child{font-weight:500;}
+
+  .product-actions{margin-top:32px;display:flex;gap:14px;flex-wrap:wrap;}
+  .cod-note{
+    margin-top:18px;font-size:13px;color:var(--grey);
+    display:flex;align-items:center;gap:8px;
+  }
+  .cod-note svg{width:16px;height:16px;flex-shrink:0;color:var(--brass-deep);}
+
+  /* ---------- TRUST STRIP ---------- */
+  .trust-strip{
+    background:var(--ink);color:var(--paper);
+  }
+  .trust-strip .wrap{
+    display:grid;grid-template-columns:repeat(4,1fr);
+  }
+  .trust-item{
+    padding:44px 28px;
+    border-right:1px solid #262622;
+    display:flex;flex-direction:column;gap:14px;
+  }
+  .trust-item:last-child{border-right:none;}
+  .trust-item svg{width:26px;height:26px;color:var(--brass);}
+  .trust-item h4{font-family:'Fraunces',serif;font-weight:500;font-size:18px;color:var(--white);}
+  .trust-item p{font-size:13.5px;color:#a9a599;}
+  @media(max-width:900px){
+    .trust-strip .wrap{grid-template-columns:repeat(2,1fr);}
+    .trust-item:nth-child(2){border-right:none;}
+    .trust-item{border-bottom:1px solid #262622;}
+  }
+  @media(max-width:520px){
+    .trust-strip .wrap{grid-template-columns:1fr;}
+    .trust-item{border-right:none;}
+  }
+
+  /* ---------- WHY / CRAFT BAND ---------- */
+  .craft-band{
+    display:grid;grid-template-columns:0.9fr 1.1fr;gap:60px;align-items:center;
+  }
+  .craft-band .visual{
+    aspect-ratio:1/1;background:linear-gradient(150deg,#e7e2d4,#efeadf);
+    border:1px solid var(--line);
+    display:flex;align-items:center;justify-content:center;color:#8b8778;font-size:13px;text-align:center;
+    position:relative;overflow:hidden;
+  }
+  .craft-band .visual img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;}
+  .craft-list{display:flex;flex-direction:column;gap:0;margin-top:32px;}
+  .craft-list li{
+    padding:22px 0;border-top:1px solid var(--line);
+    display:flex;gap:20px;
+  }
+  .craft-list li:last-child{border-bottom:1px solid var(--line);}
+  .craft-list .mark{font-family:'Fraunces',serif;color:var(--brass-deep);font-size:15px;padding-top:2px;}
+  .craft-list h4{font-size:17px;margin-bottom:6px;}
+  .craft-list p{font-size:14.5px;color:var(--grey);max-width:46ch;}
+
+  /* ---------- TESTIMONIALS ---------- */
+  .testimonial-section{background:var(--ink);color:var(--paper);}
+  .testimonial-section .section-head p{color:#a9a599;}
+  .testimonial-section .section-head h2{color:var(--white);}
+  .t-scroll{
+    display:flex;gap:20px;overflow-x:auto;padding-bottom:12px;
+    scroll-snap-type:x mandatory;
+    margin:0 -32px;padding-left:32px;padding-right:32px;
+  }
+  @media(max-width:640px){.t-scroll{margin:0 -20px;padding-left:20px;padding-right:20px;}}
+  .t-scroll::-webkit-scrollbar{height:6px;}
+  .t-scroll::-webkit-scrollbar-thumb{background:#33332e;border-radius:4px;}
+  .t-card{
+    flex:0 0 340px;
+    scroll-snap-align:start;
+    background:var(--ink-soft);
+    border:1px solid #29291f;
+    padding:32px;
+  }
+  .t-quote{color:var(--brass);font-family:'Fraunces',serif;font-size:34px;line-height:1;margin-bottom:14px;}
+  .t-card p.body{font-size:15px;color:#d4d1c6;line-height:1.65;min-height:110px;}
+  .t-foot{display:flex;align-items:center;gap:12px;margin-top:24px;}
+  .t-avatar{
+    width:40px;height:40px;border-radius:50%;
+    background:#2c2c26;flex-shrink:0;
+    display:flex;align-items:center;justify-content:center;
+    font-family:'Fraunces',serif;color:var(--brass);font-size:15px;
+  }
+  .t-name{font-size:14.5px;font-weight:600;color:var(--white);}
+  .t-loc{font-size:12.5px;color:#8f8b7f;}
+  .t-stars{color:var(--brass);font-size:13px;margin-top:2px;}
+
+  /* ---------- FAQ ---------- */
+  .faq-section .wrap{
+    display:grid;grid-template-columns:0.8fr 1.2fr;gap:60px;
+  }
+  .faq-list{border-top:1px solid var(--line);}
+  .faq-item{border-bottom:1px solid var(--line);}
+  .faq-q{
+    width:100%;background:none;border:none;text-align:left;
+    padding:24px 0;display:flex;justify-content:space-between;align-items:center;
+    gap:20px;font-size:16.5px;font-family:'Fraunces',serif;font-weight:500;color:var(--ink);
+  }
+  .faq-q .icon{
+    flex-shrink:0;width:22px;height:22px;position:relative;
+  }
+  .faq-q .icon::before,.faq-q .icon::after{
+    content:"";position:absolute;background:var(--ink);
+  }
+  .faq-q .icon::before{left:0;top:50%;width:100%;height:1.5px;transform:translateY(-50%);}
+  .faq-q .icon::after{top:0;left:50%;width:1.5px;height:100%;transform:translateX(-50%);transition:transform .25s ease;}
+  .faq-item.open .faq-q .icon::after{transform:translateX(-50%) rotate(90deg);opacity:0;}
+  .faq-a{
+    max-height:0;overflow:hidden;transition:max-height .3s ease;
+  }
+  .faq-item.open .faq-a{max-height:220px;}
+  .faq-a p{padding:0 0 26px;font-size:14.5px;color:var(--grey);max-width:60ch;line-height:1.7;}
+
+  /* ---------- COMING SOON ---------- */
+  .soon-section{background:var(--paper-2);}
+  .soon-grid{
+    display:grid;grid-template-columns:repeat(3,1fr);gap:24px;
+  }
+  @media(max-width:900px){.soon-grid{grid-template-columns:1fr;}}
+  .soon-card{
+    background:var(--white);border:1px solid var(--line);
+    display:flex;flex-direction:column;
+  }
+  .soon-visual{
+    aspect-ratio:4/5;
+    background:linear-gradient(155deg,#e2ddcd,#f0ece1);
+    display:flex;align-items:center;justify-content:center;
+    color:#928d7c;font-size:13px;text-align:center;padding:20px;
+    position:relative;overflow:hidden;
+  }
+  .soon-visual img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;}
+  .soon-badge{
+    position:absolute;top:16px;left:16px;
+    background:var(--ink);color:var(--paper);
+    font-size:11.5px;font-weight:600;padding:7px 12px;border-radius:2px;
+    letter-spacing:0.02em;
+  }
+  .soon-body{padding:24px 26px 28px;}
+  .soon-body h4{font-size:19px;margin-bottom:8px;}
+  .soon-body p{font-size:14px;color:var(--grey);}
+  .soon-month{
+    margin-top:16px;font-size:13px;color:var(--brass-deep);font-weight:600;
+    display:flex;align-items:center;gap:8px;
+  }
+  .soon-month::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--brass);}
+
+  /* ---------- NEWSLETTER / CTA STRIP ---------- */
+  .cta-strip{background:var(--ink);color:var(--paper);}
+  .cta-strip .wrap{
+    display:flex;justify-content:space-between;align-items:center;gap:32px;
+    padding:64px 32px;flex-wrap:wrap;
+  }
+  .cta-strip h3{color:var(--white);font-size:28px;max-width:16ch;}
+  .cta-strip p{color:#a9a599;margin-top:10px;font-size:15px;max-width:40ch;}
+  .cta-form{display:flex;gap:0;max-width:380px;width:100%;}
+  .cta-form input{
+    flex:1;padding:15px 18px;border:1px solid #35352d;background:#161613;
+    color:var(--paper);font-size:14.5px;border-right:none;
+  }
+  .cta-form input::placeholder{color:#8f8b7f;}
+  .cta-form button{
+    padding:15px 22px;background:var(--brass);color:var(--ink);border:1px solid var(--brass);
+    font-weight:600;font-size:14px;white-space:nowrap;
+  }
+  .cta-form button:hover{background:var(--brass-deep);color:var(--white);}
+
+  /* ---------- FOOTER ---------- */
+  footer{background:#0a0a09;color:#a9a599;}
+  .footer-top{
+    display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:40px;
+    padding:72px 0 56px;
+  }
+  @media(max-width:900px){.footer-top{grid-template-columns:1fr 1fr;row-gap:44px;}}
+  @media(max-width:520px){.footer-top{grid-template-columns:1fr;}}
+  .footer-brand .logo{color:var(--white);}
+  .footer-brand p{margin-top:18px;font-size:14px;color:#7c7869;max-width:32ch;line-height:1.7;}
+  .footer-social{display:flex;gap:14px;margin-top:24px;}
+  .footer-social a{
+    width:36px;height:36px;border:1px solid #262622;border-radius:50%;
+    display:flex;align-items:center;justify-content:center;transition:border-color .2s ease,color .2s ease;
+  }
+  .footer-social a:hover{border-color:var(--brass);color:var(--brass);}
+  .footer-social svg{width:16px;height:16px;}
+  .footer-col h5{color:var(--white);font-size:14.5px;font-weight:600;margin-bottom:20px;font-family:'Inter',sans-serif;}
+  .footer-col ul{display:flex;flex-direction:column;gap:13px;}
+  .footer-col a{font-size:14px;color:#a9a599;transition:color .2s ease;}
+  .footer-col a:hover{color:var(--brass);}
+  .footer-bottom{
+    border-top:1px solid #1c1c19;
+    padding:26px 0;
+    display:flex;justify-content:space-between;align-items:center;
+    flex-wrap:wrap;gap:14px;
+    font-size:13px;color:#726e60;
+  }
+  .footer-payments{display:flex;gap:10px;align-items:center;}
+  .footer-payments span{
+    border:1px solid #262622;padding:6px 10px;border-radius:2px;font-size:11.5px;color:#8f8b7f;
+  }
+
+  /* ---------- RESPONSIVE ---------- */
+  @media(max-width:960px){
+    .hero .wrap{grid-template-columns:1fr;padding-top:40px;}
+    .hero-visual{order:-1;}
+    .hero-visual .frame{aspect-ratio:16/10;}
+    .hero-copy{padding-bottom:48px;}
+    .product-card{grid-template-columns:1fr;}
+    .product-gallery{padding:32px;}
+    .product-info{padding:36px 32px 44px;}
+    .craft-band{grid-template-columns:1fr;gap:36px;}
+    .faq-section .wrap{grid-template-columns:1fr;gap:20px;}
+  }
+  @media(max-width:760px){
+    .nav-links{display:none;}
+    .menu-toggle{display:flex;}
+    .header-cta .btn-outline{display:none;}
+  }
+  @media(max-width:640px){
+    .hero-actions .btn{flex:1;}
+    .hero-price-row{gap:20px;}
+    .cta-strip .wrap{padding:48px 20px;}
+  }
+</style>
+</head>
+<body>
+
+<!-- ================= HEADER ================= -->
+<header class="site-header">
+  <div class="wrap">
+    <a href="index.html" class="logo"> <img src="imgs/logo.png" width="10%" height="auto"></a>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="#product">Shop</a>
+      <a href="#trust">Why Nira's</a>
+      <a href="#testimonials">Reviews</a>
+      <a href="#faqs">FAQs</a>
+      <a href="#coming-soon">Coming Soon</a>
+    </nav>
+    <div class="header-cta">
+      <a href="#product" class="btn btn-outline">Shop Now</a>
+      <button class="menu-toggle" aria-label="Open menu">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- ================= HERO / BANNER ================= -->
+<section class="hero">
+  <div class="wrap">
+    <div class="hero-copy">
+      <div class="hero-kicker">The Blackout Collection</div>
+      <h1>Time, worn in its darkest hour.</h1>
+      <p class="lede">An all-black octagonal watch with hand-set Arabic numerals — built for the wrist that doesn't need to say much.</p>
+      <div class="hero-actions">
+        <a href="product.html" class="btn btn-brass">Take A Look</a>
+
+      </div>
+      <div class="hero-price-row">
+        <div>
+          <div class="num">1 Yr</div>
+          <div class="lbl">Brand Warranty</div>
+        </div>
+        <div>
+          <div class="num">7 Day</div>
+          <div class="lbl">Easy Returns</div>
+        </div>
+        <div>
+          <div class="num">COD</div>
+          <div class="lbl">Available</div>
+        </div>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="frame">
+        <img src="imgs/banner.png" alt="Nira's Watches blackout octagonal watch" onerror="this.style.display='none'">
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= TICKER ================= -->
+<div class="ticker" aria-hidden="true">
+  <div class="ticker-track">
+    <span>Fast Shipping Pan-India</span>
+    <span>100% Original Products</span>
+    <span>Cash On Delivery Available</span>
+    <span>1 Year Brand Warranty</span>
+    <span>Fast Shipping Pan-India</span>
+    <span>100% Original Products</span>
+    <span>Cash On Delivery Available</span>
+    <span>1 Year Brand Warranty</span>
+  </div>
+</div>
+
+<!-- ================= PRODUCT ================= -->
+<section class="section product-section" id="product">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>The watch everyone's asking about.</h2>
+      <p>One design, done properly. Stainless steel case, Quartz movement, and a dial you'll actually want to look at.</p>
+    </div>
+
+    <div class="product-card">
+      <div class="product-gallery">
+        <div class="g-item main">
+          <img src="imgs/one.png" alt="Nira's Watches product photo, front view" onerror="this.style.display='none'">
+
+        </div>
+        <div class="g-item">
+          <img src="imgs/two.png" alt="Nira's Watches product photo, side view" onerror="this.style.display='none'">
+
+        </div>
+        <div class="g-item">
+          <img src="imgs/three.png" alt="Nira's Watches worn on wrist" onerror="this.style.display='none'">
+
+        </div>
+      </div>
+
+      <div class="product-info">
+        <div class="product-tag">Blackout Collection</div>
+        <h3>The Octagon — Full Black</h3>
+        <div class="stars" aria-label="Rated 4.8 out of 5">
+          ★★★★★ <span class="count">4.8 (1.4k reviews)</span>
+        </div>
+
+        <div class="price-block">
+          <span class="now">₹250</span>
+          <span class="was">₹500</span>
+          <span class="off">50% off</span>
+        </div>
+
+
+        <div class="product-actions">
+          <a href="product.html" class="btn btn-outline">More Details →</a>
+        </div>
+              </div>
+    </div>
+  </div>
+</section>
+<!-- ================= COMING SOON ================= -->
+<section class="section soon-section" id="coming-soon">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Three more, landing next month.</h2>
+      <p>We're expanding the Blackout Collection. Here's a first look at what's coming.</p>
+    </div>
+
+    <div class="soon-grid">
+      <div class="soon-card">
+        <div class="soon-visual">
+          <span class="soon-badge">Launching In October</span>
+          <img src="imgs/tos.png" alt="Upcoming watch design 1" onerror="this.style.display='none'">
+          
+        </div>
+        <div class="soon-body">
+          <h4>The Onyx Steel</h4>
+          <p>Round dial, gunmetal bracelet — a quieter take on the Blackout line.</p>
+          <div class="soon-month">October 1st Week</div>
+        </div>
+      </div>
+      <div class="soon-card">
+        <div class="soon-visual">
+          <span class="soon-badge">Launching In October</span>
+          <img src="imgs/tsc.png" alt="Upcoming watch design 2" onerror="this.style.display='none'">
+          
+        </div>
+        <div class="soon-body">
+          <h4>The Slate Chrono</h4>
+          <p>Multi-dial chronograph styling, same matte-black finish you know.</p>
+          <div class="soon-month">October 2nd Week</div>
+        </div>
+      </div>
+      <div class="soon-card">
+        <div class="soon-visual">
+          <span class="soon-badge">Launching In October</span>
+          <img src="imgs/tmm.png" alt="Upcoming watch design 3" onerror="this.style.display='none'">
+          
+        </div>
+        <div class="soon-body">
+          <h4>The Midnight Mesh</h4>
+          <p>A mesh-strap edition for a lighter, dressier everyday feel.</p>
+          <div class="soon-month">October 3rd Week</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- ================= TRUST STRIP ================= -->
+<section class="trust-strip" id="trust">
+  <div class="wrap">
+    <div class="trust-item">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M3 12h13l-4-4m4 4l-4 4"/><path d="M16 6h3l2 4v6h-5"/><circle cx="7" cy="18" r="1.6"/><circle cx="17" cy="18" r="1.6"/></svg>
+      <h4>Fast Shipping</h4>
+      <p>Dispatched within 24–48 hours, delivered pan-India.</p>
+    </div>
+    <div class="trust-item">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M12 3l7 3v6c0 5-3.5 7.5-7 9-3.5-1.5-7-4-7-9V6l7-3z"/><path d="M9 12l2 2 4-4"/></svg>
+      <h4>Secure Payments</h4>
+      <p>UPI, cards and Cash on Delivery — always encrypted.</p>
+    </div>
+    <div class="trust-item">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M3 8l9-5 9 5-9 5-9-5z"/><path d="M3 8v8l9 5 9-5V8"/><path d="M12 13v8"/></svg>
+      <h4>Premium Packaging</h4>
+      <p>Signature Nira's box, ready to gift, straight out of the mailer.</p>
+    </div>
+    <div class="trust-item">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg>
+      <h4>24/7 Support</h4>
+      <p>Real answers on order, sizing or warranty — anytime.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CRAFT / WHY BAND ================= -->
+<section class="section">
+  <div class="wrap craft-band">
+    <div class="visual">
+      <img src="imgs/sqrbanner.png" alt="Close-up of watch dial and case detailing" onerror="this.style.display='none'">
+      Detail / macro shot of the dial or case
+    </div>
+    <div>
+      <div class="hero-kicker" style="color:var(--brass-deep);">Built Different</div>
+      <h2>Not another shiny watch.</h2>
+      <ul class="craft-list">
+        <li>
+          <span class="mark">—</span>
+          <div>
+            <h4>Solid stainless steel, matte finish</h4>
+            <p>Scratch-resistant case and bracelet, blacked out end to end — no dust, no fingerprints, no fuss.</p>
+          </div>
+        </li>
+        <li>
+          <span class="mark">—</span>
+          <div>
+            <h4>Hand-set Arabic numeral dial</h4>
+            <p>A dial detail most brands skip. Every marker is placed to be felt, not just seen.</p>
+          </div>
+        </li>
+        <li>
+          <span class="mark">—</span>
+          <div>
+            <h4>Precise Japanese quartz movement</h4>
+            <p>Reliable time-keeping with a reset function, backed by a full year of brand warranty.</p>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ================= TESTIMONIALS ================= -->
+<section class="section testimonial-section" id="testimonials">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Worn by people who don't over-explain themselves.</h2>
+
+    </div>
+  </div>
+  <div class="wrap" style="max-width:100%;">
+    <div class="t-scroll">
+      <div class="t-card">
+        <div class="t-quote">"</div>
+        <p class="body">Ordered on COD, got it in 2 days. The dial looks way more premium than ₹250 — genuinely surprised.</p>
+        <div class="t-foot">
+          <div class="t-avatar">R</div>
+          <div>
+            <div class="t-name">Rohit Malhotra</div>
+            <div class="t-loc">Delhi</div>
+            <div class="t-stars">★★★★★</div>
+          </div>
+        </div>
+      </div>
+      <div class="t-card">
+        <div class="t-quote">"</div>
+        <p class="body">Packaging alone felt like a gift box. Gifted it to my brother-in-law and he asked where I got it from.</p>
+        <div class="t-foot">
+          <div class="t-avatar">A</div>
+          <div>
+            <div class="t-name">Ayesha Khan</div>
+            <div class="t-loc">Hyderabad</div>
+            <div class="t-stars">★★★★★</div>
+          </div>
+        </div>
+      </div>
+      <div class="t-card">
+        <div class="t-quote">"</div>
+        <p class="body">The Arabic numeral dial is such a nice touch, haven't seen this on a watch at this price before.</p>
+        <div class="t-foot">
+          <div class="t-avatar">S</div>
+          <div>
+            <div class="t-name">Sahil Verma</div>
+            <div class="t-loc">Pune</div>
+            <div class="t-stars">★★★★★</div>
+          </div>
+        </div>
+      </div>
+      <div class="t-card">
+        <div class="t-quote">"</div>
+        <p class="body">Was skeptical about an online-only watch brand, but returns were genuinely easy when I needed a size check.</p>
+        <div class="t-foot">
+          <div class="t-avatar">P</div>
+          <div>
+            <div class="t-name">Priya Nair</div>
+            <div class="t-loc">Kochi</div>
+            <div class="t-stars">★★★★☆</div>
+          </div>
+        </div>
+      </div>
+      <div class="t-card">
+        <div class="t-quote">"</div>
+        <p class="body">Matte black bracelet doesn't show fingerprints at all. Wearing it daily for a month now, holding up well.</p>
+        <div class="t-foot">
+          <div class="t-avatar">K</div>
+          <div>
+            <div class="t-name">Karan Mehta</div>
+            <div class="t-loc">Ahmedabad</div>
+            <div class="t-stars">★★★★★</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FAQ ================= -->
+<section class="section faq-section" id="faqs">
+  <div class="wrap">
+    <div>
+      <div class="hero-kicker" style="color:var(--brass-deep);">Questions</div>
+      <h2>Everything before you check out.</h2>
+      <p style="margin-top:16px;color:var(--grey);font-size:15px;">Still stuck? Reach us anytime — support's on round the clock.</p>
+      <a href="mailto:support@niras.in" class="btn btn-outline" style="margin-top:28px;">Contact Support</a>
+    </div>
+
+    <div class="faq-list">
+      <div class="faq-item open">
+        <button class="faq-q">
+          Is Cash on Delivery really available?
+          <span class="icon"></span>
+        </button>
+        <div class="faq-a">
+          <p>Yes — COD is available on most pin codes across India. You'll see the option at checkout if it's serviceable for your location; otherwise you can pay securely by UPI or card.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">
+          What's the return and exchange policy?
+          <span class="icon"></span>
+        </button>
+        <div class="faq-a">
+          <p>Easy 7-day returns and exchanges from the date of delivery, no questions asked, as long as the watch is unused and in its original packaging.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">
+          Is the watch water resistant?
+          <span class="icon"></span>
+        </button>
+        <div class="faq-a">
+          <p>This piece is water-resistant — fine for everyday wear, but we'd recommend keeping it away from direct water contact.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">
+          How long does shipping take?
+          <span class="icon"></span>
+        </button>
+        <div class="faq-a">
+          <p>Orders are dispatched within 24–48 hours and typically arrive in 3–6 working days depending on your city.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">
+          Does it come with a warranty?
+          <span class="icon"></span>
+        </button>
+        <div class="faq-a">
+          <p>Every Nira's watch ships with a 1-year brand warranty covering manufacturing defects, honoured directly by us.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<!-- ================= CTA / NEWSLETTER ================= -->
+<section class="cta-strip">
+  <div class="wrap">
+    <div>
+      <h3>Be first to know when we drop.</h3>
+      <p>New designs, early access and the occasional discount. No spam, ever.</p>
+    </div>
+    <form class="cta-form" onsubmit="event.preventDefault();">
+      <label for="newsletter-email" class="sr-only" style="position:absolute;left:-9999px;">Email address</label>
+      <input type="email" id="newsletter-email" placeholder="you@email.com" required>
+      <button type="submit">Notify Me</button>
+    </form>
+  </div>
+</section>
+
+<!-- ================= FOOTER ================= -->
+<footer>
+  <div class="wrap">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a href="index.html" class="logo"> <img src="imgs/logo.png" width="10%" height="auto"></a>
+        <p>Premium blackout watches for the everyday wrist. Designed for India, shipped from India.</p>
+        <div class="footer-social">
+          
+        </div>
+      </div>
+      <div class="footer-col">
+        <h5>Links</h5>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="wr.html">Warranty Registration</a></li>
+          <li><a href="https://www.xpressbees.com/shipment/tracking" target="_blank">Consignment Tracking</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Policies</h5>
+        <ul>
+          <li><a href="pp.html">Privacy Policy</a></li>
+          <li><a href="tnc.html">Terms & Conditions</a></li>
+          <li><a href="rnr.html">Returns & Refunds</a></li>
+        
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Connect</h5>
+        <ul>
+          <li><a href="callto:0731 2438115">0731 2438115 [Landline]</a></li>
+          <li><a href="mailto:contact@niras.in">contact@niras.in</a></li>
+          <li><a href="#">77/C, Industrial Area, Rau, Indore, Madhya Pradesh 453331.</a></li>
+
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Nira's Watches | All rights reserved.</span>
+      <div class="footer-payments">
+
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // FAQ accordion
+  document.querySelectorAll('.faq-item').forEach(function(item){
+    item.querySelector('.faq-q').addEventListener('click', function(){
+      var isOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item').forEach(function(i){ i.classList.remove('open'); });
+      if(!isOpen){ item.classList.add('open'); }
+    });
+  });
+
+  // Mobile menu (simple toggle -> scroll to nav links shown as list)
+  var toggle = document.querySelector('.menu-toggle');
+  var navLinks = document.querySelector('.nav-links');
+  toggle.addEventListener('click', function(){
+    var isShown = navLinks.style.display === 'flex';
+    if(isShown){
+      navLinks.style.display = 'none';
+    } else {
+      navLinks.style.cssText = 'display:flex;position:absolute;top:76px;left:0;right:0;background:#f6f3ec;flex-direction:column;gap:0;padding:8px 20px 20px;border-bottom:1px solid #dcd5c4;';
+      navLinks.querySelectorAll('a').forEach(function(a){ a.style.padding = '14px 0'; a.style.borderBottom = '1px solid #dcd5c4'; });
+    }
+  });
+</script>
+
+</body>
+</html>
