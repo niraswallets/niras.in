@@ -504,7 +504,17 @@
   </div>
 </header>
 
+<div id="loader"><div class="spinner"></div></div>
 
+<style>
+#loader{position:fixed;inset:0;background:#fff;display:flex;align-items:center;justify-content:center;z-index:99999}
+.spinner{width:35px;height:35px;border:4px solid #ddd;border-top-color:#111;border-radius:50%;animation:spin .7s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+</style>
+
+<script>
+setTimeout(()=>document.getElementById("loader").style.display="none",2000);
+</script> 
 <!-- ================= PRODUCT ================= -->
 <section class="section product-section" id="product">
   <div class="wrap">
