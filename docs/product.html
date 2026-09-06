@@ -607,7 +607,7 @@ justify-content:center;
 }
 </style>
 <div class="timer">
-
+        <div class="product-tag">Only For Today ⏳</div>
     <div class="flip-box">
         <div class="flip" id="hours">00</div>
         <div class="label">Hr</div>
@@ -679,15 +679,15 @@ setInterval(updateTimer,1000);
     <div class="product-card">
       <div class="product-gallery">
         <div class="g-item main">
-          <img src="imgs/pbanner.png" alt="Nira's Watches product photo, front view" onerror="this.style.display='none'">
+          <a href="#custimgs"><img src="imgs/pbanner.png" alt="Nira's Watches product photo, front view" onerror="this.style.display='none'"></a>
 
         </div>
         <div class="g-item">
-          <img src="imgs/two.png" alt="Nira's Watches product photo, side view" onerror="this.style.display='none'">
+          <a href="#custimgs"><img src="imgs/two.png" alt="Nira's Watches product photo, side view" onerror="this.style.display='none'"></a>
           
         </div>
         <div class="g-item">
-          <img src="imgs/three.png" alt="Nira's Watches worn on wrist" onerror="this.style.display='none'">
+          <a href="#custimgs"><img src="imgs/three.png" alt="Nira's Watches worn on wrist" onerror="this.style.display='none'"></a>
           
         </div>
       </div>
@@ -947,7 +947,7 @@ setInterval(updateTimer,1000);
      GALLERY
 ========================= -->
 
-<div class="gallery-box">
+<div class="gallery-box" id="custimgs">
 <h3>Photos from customers</h3><br>
     <div class="gallery-grid" id="gallery"></div>
 
