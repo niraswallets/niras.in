@@ -923,32 +923,98 @@ lightbox.addEventListener("click", (e) => {
 
 <br><center>
 
-
 <button id="uploadPhotoBtn" style="background:#000;color:#fff;padding:14px 28px;border:none;border-radius:6px;font-weight:600;cursor:pointer;">
   Upload Square Photo
 </button>
 
-<!-- Hidden file input - "files only" ke liye accept="image/*" -->
 <input type="file" id="photoInput" accept="image/*" style="display:none">
 
 <script>
-  document.getElementById('uploadPhotoBtn').addEventListener('click', () => {
-    document.getElementById('photoInput').click();
-  });
+const uploadBtn = document.getElementById("uploadPhotoBtn");
+const photoInput = document.getElementById("photoInput");
 
-  document.getElementById('photoInput').addEventListener('change', (e) => {
-    const file = e.target.files[0];
-    if (!file) return;
+uploadBtn.addEventListener("click", function () {
+  photoInput.value = ""; // same photo dobara select karne ke liye
+  photoInput.click();
+});
 
-    const reader = new FileReader();
-    reader.onload = function (event) {
-      // Image ko localStorage mein save kiya, next page pe use hogi
-      localStorage.setItem('Photo', event.target.result);
-      window.location.href = 'bcheckout.html'; // apna actual page name daal dena
+photoInput.addEventListener("change", function (e) {
+  const file = e.target.files[0];
+
+  if (!file) return;
+
+  if (!file.type.startsWith("image/")) {
+    alert("Please select an image.");
+    return;
+  }
+
+  const reader = new FileReader();
+
+  reader.onload = function (event) {
+    const img = new Image();
+
+    img.onload = function () {
+
+      // Canvas se image compress
+      const canvas = document.createElement("canvas");
+      const ctx = canvas.getContext("2d");
+
+      // Maximum 1000x1000
+      const maxSize = 1000;
+
+      let width = img.width;
+      let height = img.height;
+
+      if (width > height) {
+        if (width > maxSize) {
+          height = Math.round(height * maxSize / width);
+          width = maxSize;
+        }
+      } else {
+        if (height > maxSize) {
+          width = Math.round(width * maxSize / height);
+          height = maxSize;
+        }
+      }
+
+      canvas.width = width;
+      canvas.height = height;
+
+      ctx.drawImage(img, 0, 0, width, height);
+
+      // JPEG compress
+      const compressedImage = canvas.toDataURL("image/jpeg", 0.75);
+
+      try {
+        localStorage.setItem("Photo", compressedImage);
+
+        // Save successful hone ke baad hi redirect
+        window.location.href = "bcheckout.html";
+
+      } catch (error) {
+        console.error("Storage Error:", error);
+        alert("Image is too large. Please select another photo.");
+      }
     };
-    reader.readAsDataURL(file);
-  });
+
+    img.onerror = function () {
+      alert("Unable to process this image. Please try another photo.");
+    };
+
+    img.src = event.target.result;
+  };
+
+  reader.onerror = function () {
+    alert("Unable to read the selected photo.");
+  };
+
+  reader.readAsDataURL(file);
+});
 </script>
+
+
+
+	
   
 <!-- =========================
      UPLOAD BUTTON
